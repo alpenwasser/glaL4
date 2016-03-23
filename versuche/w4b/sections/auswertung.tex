@@ -17,6 +17,13 @@ und verschiedenen Abst\"anden. Der letzte Messpunkt bei \SI{325}{\milli\meter}
 wurde  im  Fit nicht  ber\"ucksichtigt,  da  er  stark nach  einem  Ausreisser
 aussieht.
 
+Die f\"ur den Fit benutzte Gleichung lautet:
+\begin{equation}
+    T_0 = 2 \cdot \pi \cdot \sqrt{\frac{I_0 + m \cdot a^2}{m \cdot g \cdot a}}
+\end{equation}
+
+Wobei $g = \SI{9.807}{\meter\per\second\squared}$ eingesetzt wurde.
+
 Der Referenzwert aus der Versuchsanleitung f\"ur $I_0$ ist $\SI{1.16e-2}{\kilo\gram\meter\squared}$,
 der mittels Fit ermittelte Wert betr\"agt $I_0  = \SI[separate-uncertainty = true]{12.032 \pm 0.018801}{\gram\meter\squared}$.
 
@@ -79,7 +86,7 @@ Die verwendeten Parameter sind:
         $g = \SI{9.807}{\meter\per\second\squared}$
 \end{itemize}
 
-
+\clearpage
 Approximiert  man  den Reiter  als  Punktmasse  wie beim  vorherigen  Versuch,
 ergibt   sich   das  Resultat   aus   Abbildung   \ref{fig:312a},  mit   einem
 Massentr\"agheitsmoment von
@@ -93,13 +100,30 @@ $I_0  = \SI[separate-uncertainty = true]{11.362 \pm 0.39697}{\gram\meter\squared
     \label{fig:312a}
 \end{figure}
 
+Die verwendete Gleichung ist:
+\begin{equation}
+    T_0 = 2 \cdot \pi \cdot \sqrt{\frac{I_0 + m \cdot a^2}{m \cdot g \cdot a}}
+\end{equation}
+Mit den Parametern:
+\begin{itemize}
+    \item
+        $m_{Reiter}$: Variable auf horizontaler Achse
+    \item
+        $r = \SI{17.2}{\milli\meter}$ (Radius des Reiters)
+    \item
+        $a = \SI{325}{\milli\meter}$ (Position des Mittelpunktes des Reiters)
+    \item
+        $g = \SI{9.807}{\meter\per\second\squared}$
+\end{itemize}
+
 Wie man  in Abbildung  \ref{fig:312a} erkennen  kann, besteht  eine Abweichung
 zwischen Fit  und Messwerten,  welche eine  zunehmende Tendenz  mit steigender
 Reitermasse aufweist. Ich  f\"uhre das auf die  zunehmende Diskrepanz zwischen
 der Ann\"aherung des Reiters als Punktmasse  mit $I_{Reiter} = m\cdot a^2$ und
 der Modellierung als Zylinder inklusive Steiner-Anteil durch
-$I_{Reiter} = \frac{m}{12}(3  \cdot r^2  + h^2) +  m \cdot a^2$.
+$I_{Reiter} = \frac{m}{12}(3  \cdot r^2  + h^2) +  m \cdot a^2$ zur\"uck.
 
+\clearpage
 Ber\"ucksichtigt  man die  Zylindrigkeit  des Reiters  und den  Steiner-Anteil
 (siehe Abbildung \ref{fig:312b}), ergibt sich ein Massentr\"agheitsmoment von
 $I_0  = \SI[separate-uncertainty = true]{11.297 \pm 0.36271}{\gram\meter\squared}$.
@@ -113,12 +137,31 @@ $I_0  = \SI[separate-uncertainty = true]{11.297 \pm 0.36271}{\gram\meter\squared
     \label{fig:312b}
 \end{figure}
 
+Die verwendete Gleichung lautet:
+\begin{equation}
+    T_0 = 2 \cdot \pi \cdot \sqrt{\frac{I_0 + \frac{\rho \cdot l_{Reiter}}{12} \cdot (3\cdot r^2 + l_{Reiter}^2) + \rho \cdot l_{Reiter} \cdot a^2}{\rho \cdot l_{Reiter} \cdot g \cdot a}}
+\end{equation}
+
+Mit den Parametern:
+\begin{itemize}
+    \item
+        $\rho = \SI{6.667}{\kilo\gram\per\meter}$
+    \item
+        $l_{Reiter}$: Variable auf horizontaler Achse
+    \item
+        $r = \SI{17.2}{\milli\meter}$ (Radius des Reiters)
+    \item
+        $a = \SI{325}{\milli\meter}$ (Position des Mittelpunktes des Reiters)
+    \item
+        $g = \SI{9.807}{\meter\per\second\squared}$
+\end{itemize}
 \clearpage
 Man  kann  in  Abbildung  \ref{fig:312b}  erkennen, dass  nach  wie  vor  eine
 Abweichung zwischen Fit und Messwerten besteht, allerdings scheint die Tendenz
 der Differenz eher konstant und nicht zunehmend zu sein. Deshalb habe ich noch
 einen  zus\"atzlichen  Fit  erstellt,  in dem  der  unterste  Messpunkt  nicht
-ber\"ucksichtigt wird, was zum Fit in Abbildung \ref{fig:312c} f\"uhrt.
+ber\"ucksichtigt wird, was zum Fit in Abbildung \ref{fig:312c} f\"uhrt. Die Gleichung
+ist dieselbe wie beim Fit in Abbildung \ref{fig:312b}.
 
 Dies ergibt
 $I_0  = \SI[separate-uncertainty = true]{12.311 \pm 0.092950}{\gram\meter\squared}$.
@@ -133,6 +176,20 @@ Messpunkt weniger verwendet wurde.
     }
     \label{fig:312c}
 \end{figure}
+
+Auch hier sind die verwendeten Parameter:
+\begin{itemize}
+    \item
+        $\rho = \SI{6.667}{\kilo\gram\per\meter}$
+    \item
+        $l_{Reiter}$: Variable auf horizontaler Achse
+    \item
+        $r = \SI{17.2}{\milli\meter}$ (Radius des Reiters)
+    \item
+        $a = \SI{325}{\milli\meter}$ (Position des Mittelpunktes des Reiters)
+    \item
+        $g = \SI{9.807}{\meter\per\second\squared}$
+\end{itemize}
 
 % ---------------------------------------------------------------------------- %
 \clearpage
@@ -172,28 +229,37 @@ zu einem Winkel  von \SI{120}{\degree} gemessen haben,  ergibt dies ungef\"ahr
 Da  QtiPlot bei  12  Summanden abst\"urzte,  wurde die  Funktion  nur bis  zur
 18. Potenz des Sinus gefittet.
 
+\clearpage
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{images/313.pdf}
-    \label{fig:pendelKonfigs}
+    \includegraphics[width=.875\textwidth]{images/313.pdf}
     \caption{%
         Schwingungsdauer in Abh\"angigkeit der Auslenkung
     }
+    \label{fig:313a}
 \end{figure}
+\vspace*{-0.5em}
 
-Da der  untereste Wert  nach einem  Ausreisser aussieht  und die  oberen Werte
+Der Fit aus Abbildung \ref{fig:313a} ergibt einen Wert von
+$T_0  = \SI[separate-uncertainty = true]{1.4028 \pm 0.0058615}{\second}$.
+
+Da der  unterste Wert  nach einem  Ausreisser aussieht  und die  oberen Werte
 aufgrund  von Reibungseffekten  vermutlich  nicht mehr  allzu pr\"azise  sind,
 wurde noch ein zweiter Fit mit eingeschr\"anktem Bereich durchgef\"uhrt.
 
+\vspace*{-0.5em}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{images/313b.pdf}
-    \label{fig:pendelKonfigs}
+    \includegraphics[width=.875\textwidth]{images/313b.pdf}
     \caption{%
         Schwingungsdauer in Abh\"angigkeit der Auslenkung, eingeschr\"ankter Bereich.
     }
+    \label{fig:313b}
 \end{figure}
-$T_0  = \SI[separate-uncertainty = true]{1.4028 \pm 0.0058615}{\second}$.
+
+\vspace*{-1em}
+Benutzt man nur den eingeengten Wertebereich wie im Fit aus Abbildung \ref{fig:313b},
+so ergibt sich
 $T_0  = \SI[separate-uncertainty = true]{1.4185 \pm 0.0024071}{\second}$.
 
 % ---------------------------------------------------------------------------- %
@@ -240,12 +306,15 @@ Es gilt also:
 
 Die   Masse   der   Federn    ist   \SI{155.5}{\gram}   f\"ur   beide   Federn
 kombiniert. F\"ur das Massentr\"agheitsmoment $I_0$ verwenden wir den Wert von
-\SI{12.311}{\gram\meter\squared} aus dem eingeschr\"ankten Fit.
+\SI{12.311}{\gram\meter\squared}  aus  dem  eingeschr\"ankten Fit  \"uber  die
+Reitermasse, den wir oben bestimmt haben.
 
-Somit erh\"ahlt man als Formel f\"ur T:
+\clearpage
+Somit erh\"ahlt man als Formel f\"ur T:, welche f\"ur den Fit in Abbildung \ref{fig:331a}
+verwendet wurde:
 
 \begin{equation}
-    T = 2 \cdot \pi \cdot \sqrt{\frac{\SI{12.311}{\gram\meter\squared} + \SI{155.5}{\gram} \cdot (\SI{80.2}{\milli\meter})^2 + \SI{200}{\gram} \cdot a^2}{2 \cdot k \cdot (\SI{80.2}{\milli\meter})^2 + \SI{200}{\gram} \cdot
+    T = 2 \cdot \pi \cdot \sqrt{\frac{\SI{12.311}{\gram\meter\squared} + \frac{1}{3} \cdot \SI{155.5}{\gram} \cdot (\SI{80.2}{\milli\meter})^2 + \SI{200}{\gram} \cdot a^2}{2 \cdot k \cdot (\SI{80.2}{\milli\meter})^2 + \SI{200}{\gram} \cdot
     \SI{9.807}{\meter\per\second\squared} \cdot a}}
 \end{equation}
 
@@ -319,6 +388,12 @@ Nenner zwischen $p$ und $q$ ein Minuszeichen zu finden.
     }
 \end{figure}
 
+Auch hier wurde die folgende Formel verwendet:
+\begin{equation}
+    T = 2 \cdot \pi \cdot \sqrt{\frac{\SI{12.311}{\gram\meter\squared} + \frac{1}{3} \cdot \SI{155.5}{\gram} \cdot (\SI{80.2}{\milli\meter})^2 + \SI{200}{\gram} \cdot a^2}{2 \cdot k \cdot (\SI{80.2}{\milli\meter})^2 + \SI{200}{\gram} \cdot
+    \SI{9.807}{\meter\per\second\squared} \cdot a}}
+\end{equation}
+
 Die verwendeten Parameter sind
 \begin{itemize}
     \item
@@ -333,11 +408,12 @@ Die verwendeten Parameter sind
         $r = \SI{80.2}{\milli\meter}$
 \end{itemize}
 
-Gefittet wurde  wiederum f\"ur  die Federkonstante,  was einen  Wert von:
+Gefittet wurde  wiederum f\"ur  die Federkonstante,  was einen  Wert von
 
-$k = \SI[separate-uncertainty  =  true]{30.917 \pm  0.0070013}{\newton\per\meter}$,
+$k = \SI[separate-uncertainty  =  true]{30.917 \pm  0.0070013}{\newton\per\meter}$, ergibt.
 
-was auch ziemlich nahe beim Wert aus der Versuchsanleitung liegt.
+Dieser liegt auch ziemlich nahe beim Wert aus der Versuchsanleitung.
+
 
 % ---------------------------------------------------------------------------- %
 \clearpage
