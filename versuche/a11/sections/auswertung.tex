@@ -1,0 +1,86 @@
+% ---------------------------------------------------------------------------- %
+\subsection{Versuch 3.3 -- Planck-Konstante}
+\label{subsec:planck}
+% ---------------------------------------------------------------------------- %
+
+Die manuelle Auswertung des Scatter-Plots f\"ur den Grenzwinkel $\vartheta_G$ ist in
+Tabelle~\ref{tab:resultsPlanckManualFit} zusammengefasst.
+
+\begin{table}[h!]
+    \centering
+    \small
+    \caption{Grenzwinkel $\vartheta_G$}~\label{tab:resultsPlanckManualFit}
+    \begin{tabular}{rrr}
+        \toprule
+        Spannung U          & Winkel $2 \cdot \vartheta_G$    & Winkel $\vartheta_G$             \\
+        \midrule
+        \SI{35}{\kilo\volt} &       \SI{5     \pm~1   }{\degree} & \SI{2.5   \pm~0.5  }{\degree} \\
+        \SI{32}{\kilo\volt} &       \SI{7.5   \pm~0.5 }{\degree} & \SI{3.75  \pm~0.25 }{\degree} \\
+        \SI{26}{\kilo\volt} &       \SI{10    \pm~1   }{\degree} & \SI{5     \pm~0.5  }{\degree} \\
+        \SI{17}{\kilo\volt} &       \SI{19.75 \pm~0.25}{\degree} & \SI{9.875 \pm~0.125}{\degree} \\
+        \SI{14}{\kilo\volt} &       \SI{23.5  \pm~0.5 }{\degree} & \SI{11.75 \pm~0.25 }{\degree} \\
+        \SI{12}{\kilo\volt} &       \SI{28.5  \pm~0.5 }{\degree} & \SI{14.25 \pm~0.25 }{\degree} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Mithilfe der Bragg'schen Reflexionsgleichung, aufgel\"ost nach der Wellenl\"ange $\lambda_G$:
+
+\begin{equation}
+    \label{eq:BraggSolvedPlanck}
+    \lambda_G = \frac{2 \cdot d \cdot sin(\vartheta_G)}{n}
+\end{equation}
+
+und $n = 1$ sowie $d  = \SI{201.5}{\pico\meter}$ kann man nun die zuge\"origen
+Wellenl\"angen bestimmen. Zur Bestimmung der Unsicherheiten werden diese dabei
+einfach ebenfalls in Gleichung \ref{eq:BraggSolvedPlanck} eingesetzt. Die Ergebnisse
+sind in Tabelle \ref{tab:resultsPlanckWavelengths} zu sehen.
+
+\begin{table}[h!]
+    \centering
+    \small
+    \caption{Wellenl\"angen mit Unsicherheiten f\"ur die Grenzwinkel aus Tabelle~\ref{tab:resultsPlanckManualFit}}~\label{tab:resultsPlanckWavelengths}
+    \begin{tabular}{rr}
+        \toprule
+        Spannung U          & Grenzwellenl\"ange $\lambda_G$     \\
+        \midrule
+        \SI{35}{\kilo\volt} &       \SI{17.58 \pm 3.52}{\pico\meter} \\
+        \SI{32}{\kilo\volt} &       \SI{26.36 \pm 1.76}{\pico\meter} \\
+        \SI{26}{\kilo\volt} &       \SI{35.12 \pm 3.52}{\pico\meter} \\
+        \SI{17}{\kilo\volt} &       \SI{69.11 \pm 0.88}{\pico\meter} \\
+        \SI{14}{\kilo\volt} &       \SI{82.07 \pm 1.76}{\pico\meter} \\
+        \SI{12}{\kilo\volt} &       \SI{99.20 \pm 1.76}{\pico\meter} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+%
+%\begin{figure}[ht!]
+%\centering
+%\begin{tikzpicture}
+%    \begin{axis}[
+%        width=.67\textwidth,
+%        height=.3\textwidth,
+%        %title = {Eisengehalt},
+%        xlabel = {$I_0$ ($\si{\kilo\gram\meter\squared}$)},
+%        %symbolic y coords = {ungewichtet,gewichtet, QtiPlot gewichtet},
+%        symbolic y coords = {Referenz Versuchsanleitung,Versuch 3.1.2 Zylinder 2,Versuch 3.1.2 Zylinder,Versuch 3.1.2 Punktmasse,Versuch 3.1.1},
+%    ]
+%    \addplot+[
+%        only marks,error bars/.cd,
+%        x dir=both,x explicit,
+%        error bar style={line width=0.5pt},
+%        ]
+%    coordinates {
+%        (1.20e-2,Versuch 3.1.1) +- (1.9e-5,0)
+%        (1.14e-2,Versuch 3.1.2 Punktmasse) +- (4e-4,0)
+%        (1.13e-2,Versuch 3.1.2 Zylinder) +- (4e-4,0)
+%        (1.23e-2,Versuch 3.1.2 Zylinder 2) +- (9e-5,0)
+%        (1.16e-2,Referenz Versuchsanleitung) +- (0,0)
+%    };
+%    \end{axis}
+%\end{tikzpicture}
+%\caption{graphische Darstellung der Ergebnisse zum f\"ur $I_0$}
+%\label{fig:resultsI0}
+%\end{figure}
