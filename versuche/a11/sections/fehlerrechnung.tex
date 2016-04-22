@@ -1,1 +1,304 @@
-%Auf eine Fehlerrechnung wurde in Absprache mit dem Dozenten verzichtet.
+% ---------------------------------------------------------------------------- %
+\subsection{Versuch 3.1 -- Spektra der R\"ohren, Analyse von LiF}
+\label{subsec:error:spektra}
+% ---------------------------------------------------------------------------- %
+
+Zur Rekapitulation nochmals die mittels Regression bestimmten Nullpunktfehler:
+
+\begin{table}[h!]
+	\centering
+	\small
+    \caption{Nullpunktfehler aus Regression}
+	\label{tab:nullpunktfehler:LiF}
+	\begin{tabular}{lr}
+		\toprule
+
+        Anodenmaterial & Nullpunktfehler $\vartheta_0$ \\
+
+        \midrule
+
+        Kupfer &
+        $\vartheta_0 = \SI{-0.72925 \pm 0.080931}{\degree}$ \\
+
+        Eisen &
+        $\vartheta_0 = \SI{-0.70575 \pm 0.023094}{\degree}$ \\
+
+        Molybd\"an &
+        $\vartheta_0 = \SI{-0.70555 \pm 0.068961}{\degree}$ \\
+
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+Das Ziel ist nun die Bestimmung des Netzebenenabstandes mittels der folgenden Gleichung:
+
+\begin{equation}
+	\label{eq:braggLattice}
+    d = \frac{n \cdot \lambda}{2 \cdot sin \left( \vartheta_n - \vartheta_0 \right)}
+\end{equation}
+
+Wobei  f\"ur  $\vartheta_n$  die   halben  Z\"ahlrohrwinkel  einzusetzen  sind
+(abgelesen  aus   den  Messdaten)  und  f\"ur   $\lambda$  die  entsprechenden
+Wellenl\"angen  f\"ur  die  charakteristischen Spektrallinien  des  jeweiligen
+Anodenmaterials.
+
+Dies liefert f\"ur  jeden Peak jeder Anode einen Wert  f\"ur $d$ (Bestimmt via
+Matlab):
+
+\begin{table}[h!]
+	\centering
+	\small
+    \caption{Netzebenenabst\"ande zu den einzelnen Peaks}
+	\label{tab:lattices:LiF}
+	\begin{tabular}{llr}
+		\toprule
+
+        Anodenmaterial & Peak & Netzebenenabstand \\
+
+        \midrule
+
+        Kupfer 								&
+		$\beta_1$ 							&
+	    \SI{203.9}{\pico\meter}  \\
+
+		&
+		$\beta_2$							&
+	    \SI{203.5}{\pico\meter}  \\
+
+		&
+		$\alpha_1$ &
+ 	    \SI{204.4}{\pico\meter} \\
+
+		&
+		$\alpha_2$ &
+ 	    \SI{203.3}{\pico\meter} \\
+
+        Eisen &
+		$\beta_1$ &
+ 	    \SI{203.6}{\pico\meter} \\
+
+		&
+		$\beta_2$ &
+ 	    \SI{202.1}{\pico\meter} \\
+
+		&
+		$\alpha_1$ &
+ 	    \SI{204.0}{\pico\meter} \\
+
+		&
+		$\alpha_2$ &
+ 	    \SI{201.9}{\pico\meter} \\
+
+        Molybd\"an &
+		$\beta_1$ &
+ 	    \SI{209.0}{\pico\meter} \\
+
+		&
+		$\beta_2$ &
+ 	    \SI{207.5}{\pico\meter} \\
+
+		&
+		$\alpha_1$ &
+ 	    \SI{205.8}{\pico\meter} \\
+
+		&
+		$\alpha_2$ &
+ 	    \SI{204.6}{\pico\meter} \\
+
+		&
+		$\alpha_3$ &
+ 	    \SI{205.1}{\pico\meter} \\
+
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+Diese Werte k\"onnen nun gemittelt werden mittels der bekannten Formel:
+
+\begin{equation*}
+    \overline{x} = \frac{1}{N} \sum_{i=1}^{N}{x_i}
+\end{equation*}
+
+Und ihr Fehler bestimmt werden mittels der Formel:
+
+\begin{equation*}
+    s_{\overline{x}} = \sqrt{ \frac{\sum_{1}^{N}{(x_i-\overline{x})^2}}{N \cdot (N-1)}}
+\end{equation*}
+
+Da  Matlab   praktische  Befehle  zum  Verk\"urzen   dieser  Prozedur  bereits
+integriert hat,  greifen wir darauf zur\"uck:  \code{mean(d)} und \code{std(d)
+*  sqrt(1/length(d))},  wobei  \code{d}  der  Resultatvektor  mit  den  Werten
+aus  Tabelle  \ref{tab:lattices:LiF}  ist.  \code{std(vector)}  berechnet  die
+Standardabweichung der  Werte eines  Vektors, \code{sqrt(1/length(d)}  ist der
+Korrekturfaktor, um von der Standardabweichung auf den Fehler des Mittelwertes
+der Werte des Vektors zu kommen.
+
+% TODO: Matlab-script
+
+Dies liefert f\"ur den Netzebenenabstand von LiF:
+
+\begin{equation*}
+    d_{LiF} = \SI{204.5 \pm 0.6}{\pico\meter}
+\end{equation*}
+
+
+% ---------------------------------------------------------------------------- %
+\subsection{Versuch 3.3 -- Planck-Konstante}
+\label{subsec:error:planck}
+% ---------------------------------------------------------------------------- %
+
+F\"ur diesen Teil  des Versuches werden die Unsicherheiten  aus der Regression
+von QtiPlot benutzt.
+
+% ---------------------------------------------------------------------------- %
+\subsection{Andere Kristalle}
+\label{subsec:error:othercrystals}
+% ---------------------------------------------------------------------------- %
+
+
+Wie   bereits   erw\"ahnt,   wurde   f\"ur  jede   Spektrallinie   von   jedem
+Kristall   der   zugeh\"orige   Netzebenenabstand  mittels   der   Bragg'schen
+Gleichung  berechnet (in  Matlab). Die  erhaltenen Resultate  sind in  Tabelle
+\ref{tab:results:spektra:otherCrystals} zu sehen.
+
+\begin{table}[h!]
+    \centering
+    \small
+    \caption{%
+        Die f\"ur die vier Kristalle bestimmten Netzebenenabst\"ande und ihre
+		Unsicherheiten.
+    }
+    \label{tab:results:spektra:otherCrystals}
+    \begin{tabular}{lrrrrrrrr}
+        \toprule
+        &
+        \multicolumn{2}{l}{Bergkristall}         &
+        \multicolumn{2}{l}{Kalkspat}             &
+        \multicolumn{2}{l}{Pyrit}                &
+        \multicolumn{2}{l}{Synth. Quartz} \\
+        \midrule
+
+        &
+        d ($\beta$)  &
+        d ($\alpha$) &
+        d ($\beta$)  &
+        d ($\alpha$) &
+        d ($\beta$)  &
+        d ($\alpha$) &
+        d ($\beta$)  &
+        d ($\alpha$) \\
+
+        \midrule
+
+
+        n = 1              &
+        \SI{402.6}{\pico\meter} &
+        \SI{406.2}{\pico\meter} &
+        \SI{282.7}{\pico\meter} &
+        \SI{314.2}{\pico\meter} &
+        \SI{331.6}{\pico\meter} &
+        \SI{366.5}{\pico\meter} &
+        \SI{352.6}{\pico\meter} &
+        \SI{391.0}{\pico\meter} \\
+
+
+        n = 2                   &
+        \SI{415.6}{\pico\meter} & % n = 2 bergk
+        \SI{415.5}{\pico\meter} & % n = 2 bergk
+        \SI{652.8}{\pico\meter} & % n = 2 kalksp
+        \SI{684.2}{\pico\meter} & % n = 2 kalksp
+                                &
+                                &
+        \SI{785.4}{\pico\meter} & % n = 2 synth
+        \SI{897.1}{\pico\meter} \\ % n = 2 synth
+
+        n = 3                   &
+        \SI{408.2}{\pico\meter} & % n = 3 bergk
+        \SI{421.5}{\pico\meter} & % n = 3 bergk
+                                &
+                                &
+                                &
+                                &
+                                &
+                                \\
+
+        n = 4                   &
+        \SI{406.5}{\pico\meter} & % n = 4 bergk
+        \SI{423.6}{\pico\meter} & % n = 4 bergk
+                                &
+                                &
+                                &
+                                &
+                                &
+                                \\
+
+		\midrule
+
+        MW             &
+        \SI{408.2}{\pico\meter} &
+        \SI{416.7}{\pico\meter} &
+        \SI{302.0}{\pico\meter} &
+        \SI{310.1}{\pico\meter} &
+        \SI{269.8}{\pico\meter} &
+        \SI{270.4}{\pico\meter} &
+        \SI{251.4}{\pico\meter} &
+        \SI{251.1}{\pico\meter} \\
+
+        MW (ges.)      &
+        \multicolumn{2}{c}{\SI{412.5}{\pico\meter}} &
+        \multicolumn{2}{c}{\SI{306.1}{\pico\meter}} &
+        \multicolumn{2}{c}{\SI{251.6}{\pico\meter}} &
+        \multicolumn{2}{c}{\SI{270.1}{\pico\meter}} \\
+
+		\midrule
+
+        Fehler         &
+         \SI{2.7}{\pico\meter} &
+         \SI{3.9}{\pico\meter} &
+        \SI{12.8}{\pico\meter} &
+         \SI{3.5}{\pico\meter} &
+         \SI{0}{\pico\meter} &
+         \SI{0}{\pico\meter} &
+         \SI{3.0}{\pico\meter} &
+         \SI{3.2}{\pico\meter} \\
+
+        Fehler (ges.)    &
+        \multicolumn{2}{c}{\SI{2.7}{\pico\meter}} &
+        \multicolumn{2}{c}{\SI{5.9}{\pico\meter}} &
+        \multicolumn{2}{c}{\SI{0.3}{\pico\meter}} &
+        \multicolumn{2}{c}{\SI{1.8}{\pico\meter}} \\
+
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\textbf{Anmerkungen:}
+
+\begin{itemize}
+	\item
+        \textbf{Allgemein:} Die   Resultate  streuen   teilweise  merklich. Es
+        dr\"angt  sich  der  Verdacht  auf,   dass  hier  eine  Korrektur  des
+        Nullpunktfehlers w\"unschenswert w\"are, wie dies beim LiF-Kristall
+		gemacht wurde.
+	\item
+        \textbf{Bergkristall:} Sieht eigentlich ganz  passabel aus, verglichen
+        mit den anderen drei Kristallen.
+	\item
+        \textbf{Kalkspat:} Hier  sieht  man  einen markenten  Sprung  zwischen
+        $n  = 1$  und  $n  = 2$. Ich  f\"uhre  dies  auf die  Kristallstruktur
+        zur\"uck,  und  nicht  auf  einen  Mess-  oder  Rechenfehler. Kalkspat
+        hat  keine  kubische,  sondern eine  rhombische  Einheitszelle  (siehe
+        Anhang Versuchsanleitung). Daher k\"onnen  je nach Einstrahlungswinkel
+        verschiedene  Abst\"ande  zwischen  Netzebenen auftreten  (nicht  alle
+        Netzebenen unter allen Winkeln sind identisch.
+	\item
+        \textbf{Pyrit:} Hier  konnten  nur  bei   $n  =  1$  Peaks  detektiert
+        werden. Die enorm  kleinen Unsicherheiten  sind daher also  nicht etwa
+        das Resultat von hervorragender  Messpr\"azision, sondern das Ergebnis
+        einer enorm kleinen Anzahl Messwerte.
+	\item
+        \textbf{Synthetischer  Quartz:} Auch hier  gelten wieder  die gleichen
+        \"Uberlegungen wie beim Kalkspat bez\"uglich verschiedener m\"oglicher
+        Netzebenen, nur  dass dieser  Kristall keine rhombische,  sondern eine
+        auf Sechsecken aufbauende Gitterstruktur.
+\end{itemize}

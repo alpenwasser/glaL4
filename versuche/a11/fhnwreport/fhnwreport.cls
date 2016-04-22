@@ -32,7 +32,7 @@
 % isopage layout from memoir class:
 %\geometry{width=140mm,height=198mm,top=33mm,outer=46.7mm}
 % isopage dimensions of text block, but less off-center for non-duplex
-\geometry{width=140mm,height=198mm,top=33mm,outer=35mm}
+\geometry{width=160mm,height=217mm,top=30mm,outer=25mm}
 \geometry{footskip=19mm,headsep=13mm}
 \newcommand{\CaptionFont}{\em}
 \newcommand{\SecFont}{\sf\bfseries}
