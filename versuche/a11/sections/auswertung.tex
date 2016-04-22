@@ -230,8 +230,8 @@ Als Workaround wurde daher folgendermassen vorgegangen:
     \item
         Die somit erhaltenen Werte f\"ur den Nullpunktfehler (einer f\"ur jede
         R\"ohre)  wurden anschliessend  mit  Matlab wieder  in die  Bragg'sche
-        Formel  aus  \ref{eq:braggNew}  eingesetzt, jedoch  diesmal  nach  dem
-        Netzebenenabstand $d$ aufgel\"ost.
+        Formel  (Gleichung   \ref{eq:braggNew},  Seite  \pageref{eq:braggNew})
+        eingesetzt, jedoch diesmal nach dem Netzebenenabstand $d$ aufgel\"ost.
 
         Dabei     erh\"alt     man     f\"ur    jede     Spektrallinie     ein
         Resultat. Diese  k\"onnen  abschliessend noch  gemittelt  werden. Eine
@@ -239,34 +239,37 @@ Als Workaround wurde daher folgendermassen vorgegangen:
         \ref{subsec:error:spektra} ab Seite \pageref{subsec:error:spektra}).
 \end{itemize}
 
-Die   Regressions-Plots  sind   in   den  Abbildungen   \label{fig:offset:cu},
-\label{fig:offset:fe} und \label{fig:offset:mo} abgebildet.
+Die   Regressions-Plots   sind   in   den   Abbildungen   \ref{fig:offset:cu},
+\ref{fig:offset:fe} und \ref{fig:offset:mo} abgebildet.
 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{images/offset-Cu.png}
+    \includegraphics[width=.9\textwidth]{images/offset-Cu.png}
     \caption{Bestimmung Nullpunktfehler f\"ur Kupferr\"ohre}
     \label{fig:offset:cu}
 \end{figure}
 Der Nullpunktfehler f\"ur die Messreihe mit der Kupferr\"ohre betr\"agt also:
 $$\vartheta_0 = \SI{-0.72925 \pm 0.080931}{\degree}$$
 
+\clearpage
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{images/offset-Fe.png}
+    \includegraphics[width=.9\textwidth]{images/offset-Fe.png}
     \caption{Bestimmung Nullpunktfehler f\"ur Eisenr\"ohre}
     \label{fig:offset:fe}
 \end{figure}
+
 Der Nullpunktfehler f\"ur die Messreihe mit der Eisenr\"ohre ist:
 $$\vartheta_0 = \SI{-0.70575 \pm 0.023094}{\degree}$$
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{images/offset-Mo.png}
+    \includegraphics[width=.9\textwidth]{images/offset-Mo.png}
     \caption{Bestimmung Nullpunktfehler f\"ur Molybd\"anr\"ohre}
     \label{fig:offset:mo}
 \end{figure}
+
 Der Nullpunktfehler f\"ur die Messreihe mit der Molybd\"anr\"ohre kommt auf:
 $$\vartheta_0 = \SI{-0.70555 \pm 0.068961}{\degree}$$
 
@@ -274,7 +277,7 @@ Die  Weiterverarbeitung dieser  Resultate wurde  inklusive Fehlerrechnung  mit
 Matlab durchgef\"uhrt und ist  in Kapitel \ref{subsec:error:spektra} auf Seite
 \pageref{subsec:error:spektra} zu finden.
 
-\clearpage
+
 % ---------------------------------------------------------------------------- %
 \subsection{Versuch 3.3 -- Planck-Konstante}
 \label{subsec:planck}
@@ -356,6 +359,7 @@ mittels  der  Bragg'schen Gleichung  berechnet,  wobei  $n  =  1$ sowie  $d  =
 Die so ermittelten Wellenl\"angen und ihre Fehler wurden nun in QtiPlot eingegeben
 und eine gewichtete Regression ausgef\"uhrt.
 
+\clearpage
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{images/planck.png}
@@ -363,6 +367,7 @@ und eine gewichtete Regression ausgef\"uhrt.
     \label{fig:planck}
 \end{figure}
 
+Es ergibt sich also:
 \begin{equation*}
     h = \SI{6.6513 \pm 0.08}{\joule\second} \cdot 1e-34
 \end{equation*}
@@ -397,32 +402,34 @@ Z\"ahlrohrwinkel  sind in  Tabelle  \ref{tab:spektra:otherCrystals} auf  Seite
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{images/bergkristall-spektrum.png}
+    \includegraphics[width=.8\textwidth]{images/bergkristall-spektrum.png}
     \caption{Spektrum des Bergkristalls mit Eisenr\"ohre bei \SI{35}{\kilo\volt}}
     \label{fig:spektrum:bergkristall}
 \end{figure}
 
+\vspace{-1em}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{images/kalkspat-spektrum.png}
+    \includegraphics[width=.8\textwidth]{images/kalkspat-spektrum.png}
     \caption{Spektrum von Kalkspat  mit Eisenr\"ohre bei \SI{35}{\kilo\volt}}
     \label{fig:spektrum:kalkspat}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{images/pyrit-spektrum.png}
+    \includegraphics[width=.8\textwidth]{images/pyrit-spektrum.png}
     \caption{Spektrum von Pyrit  mit Eisenr\"ohre bei \SI{35}{\kilo\volt}}
     \label{fig:spektrum:pyrit}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{images/synth-quartz-spektrum.png}
+    \includegraphics[width=.8\textwidth]{images/synth-quartz-spektrum.png}
     \caption{Spektrum von synthetischem Quartz  mit Eisenr\"ohre bei \SI{35}{\kilo\volt}}
     \label{fig:spektrum:synth_quartz}
 \end{figure}
 
+\clearpage
 \begin{table}[h!]
     \centering
     \small

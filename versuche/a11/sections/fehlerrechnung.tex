@@ -129,11 +129,9 @@ Da  Matlab   praktische  Befehle  zum  Verk\"urzen   dieser  Prozedur  bereits
 integriert hat,  greifen wir darauf zur\"uck:  \code{mean(d)} und \code{std(d)
 *  sqrt(1/length(d))},  wobei  \code{d}  der  Resultatvektor  mit  den  Werten
 aus  Tabelle  \ref{tab:lattices:LiF}  ist.  \code{std(vector)}  berechnet  die
-Standardabweichung der  Werte eines  Vektors, \code{sqrt(1/length(d)}  ist der
+Standardabweichung der  Werte eines Vektors, \code{sqrt(1/length(d))}  ist der
 Korrekturfaktor, um von der Standardabweichung auf den Fehler des Mittelwertes
 der Werte des Vektors zu kommen.
-
-% TODO: Matlab-script
 
 Dies liefert f\"ur den Netzebenenabstand von LiF:
 
@@ -141,15 +139,31 @@ Dies liefert f\"ur den Netzebenenabstand von LiF:
     d_{LiF} = \SI{204.5 \pm 0.6}{\pico\meter}
 \end{equation*}
 
+Das  zugeh\"orige   Script  ist  in  Anhang   \ref{app:subsec:LiF}  auf  Seite
+\pageref{app:subsec:LiF} zu finden.
+
 
 % ---------------------------------------------------------------------------- %
 \subsection{Versuch 3.3 -- Planck-Konstante}
 \label{subsec:error:planck}
 % ---------------------------------------------------------------------------- %
 
-F\"ur diesen Teil  des Versuches werden die Unsicherheiten  aus der Regression
-von QtiPlot benutzt.
+Die von  Hand gesch\"atzten Unsicherheiten  wurden zusammen mit dem  im ersten
+Teil  des Versuches  bestimmten Nullplunktfehler  in die  Bragg'sche Gleichung
+eingesetzt:
+$$\lambda_{Error}  =  \frac{2  \cdot sin  \left(\vartheta_{n,Error}  -  \vartheta_0 \right)}{n}$$
+und  in  Wellenl\"angen  konvertiert.
 
+Das hierf\"ur benutzte Matlab-Script ist in Anhang \ref{app:subsec:planck} auf
+Seite \pageref{app:subsec:planck} zu finden.
+
+Anschliessend wurden die daraus berechneten Fehler in QtiPlot als Fehlerspalte
+benutzt f\"ur einen gewichteten  Regressions-Plot.  F\"ur die Unsicherheit des
+End-Resultates wurde  abschliessend die Unsicherheit  aus dem Fit  von QtiPlot
+benutzt.
+
+
+\clearpage
 % ---------------------------------------------------------------------------- %
 \subsection{Andere Kristalle}
 \label{subsec:error:othercrystals}
@@ -302,3 +316,5 @@ Gleichung  berechnet (in  Matlab). Die  erhaltenen Resultate  sind in  Tabelle
         Netzebenen, nur  dass dieser  Kristall keine rhombische,  sondern eine
         auf Sechsecken aufbauende Gitterstruktur.
 \end{itemize}
+
+Das f\"ur  diese Berechnungen benutzte  Matlab-Script befinder sich  in Anhang \ref{app:subsec:others} ab Seite \pageref{app:subsec:others}.
