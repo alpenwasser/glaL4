@@ -1,102 +1,211 @@
+Da ein Grossteil dieses Versuch in der korrekten Justierung und Durchf\"uhrung
+besteht, ist dieses Kapitel etwas umfangreicher als \"ublich.
+
 % ---------------------------------------------------------------------------- $
 \subsection{Versuchsanordnung}
 \label{subsec:versuchsanordnung}
 % ---------------------------------------------------------------------------- $
 
-%Schema der Versuchsanordnung mit Tabelle der relevanten Daten betreffend Apparatur und
-%Umwelt (Geräteliste)
-
-% ---------------------------------------------------------------------------- $
-\subsection{Messvorgang/Messmethoden}
-\label{subsec:messvorgang}
-% ---------------------------------------------------------------------------- $
-
-%mit genauer Bezeichnung der Messgeräte und ihrer Messgenauigkeit, sofern diese nicht
-%schon unter 2.1 aufgeführt sind.
-
-% ---------------------------------------------------------------------------- $
-\subsection{Proben/Versuchsobjekte}
-\label{subsec:proben}
-% ---------------------------------------------------------------------------- $
-
-%Beschreibung, sofern nötig, und Tabelle der Daten mit Fehlergrenzen.
-
-% ---------------------------------------------------------------------------- $
-\subsection{Messungen}
-\label{subsec:messungen}
-% ---------------------------------------------------------------------------- $
-
-%Versuchsparameter, allfällige Beobachtungen, Spezialitäten, Finessen.
-%In einem "normalen" Laborjournal werden an dieser Stelle die Messergebnisse notiert. Die
-%bei uns verwendeten Messprotokollblätter werden zugunsten der Lesbarkeit im Anhang
-%abgelegt - umfangreiche Datensätze werden auf CD gebrannt und beigelegt.
-
-% ---------------------------------------------------------------------------- $
-\subsubsection{Justierung der Apparatur}
-\label{subsubsec:justierung}
-% ---------------------------------------------------------------------------- $
+Grunds\"atzlich  folgt   der  Versuchsaufbau  den  in   den  Arbeitsgrundlagen
+beschriebenen    Angaben. Die   gesamte    Anordnung   ist    schematisch   in
+Abbildung     \ref{fig:versuchsanordnung:schema}    dargestellt,     Abbildung
+\ref{fig:versuchsanordnung:birdseye}  ist   die  entsprechende  fotographische
+Dokumentation.  Abbildung  \ref{fig:versuchsanordnung:perspective} zeigt einen
+anderen Blickwinkel auf die Apparaturen.
 
 
-% ---------------------------------------------------------------------------- $
-\subsubsection{Schnittwinkel der Laserstrahlen}
-\label{subsubsec:varphi}
-% ---------------------------------------------------------------------------- $
-
-\begin{minipage}[t]{\textwidth}
+\begin{figure}[h!t]
     \centering
-    \resizebox{.75\textwidth}{!}{\input{images/phi.tex}}
-    \captionof{figure}{%
-        Bestimmung des Schnittwinkels der  Laserstrahlen aus der Geometrie der
-        Versuchsanordnung.  \emph{Beachte:} Da  diese Abbildung  prim\"ar  der
-        Illustration  der Bestimmung  von  $\varphi$ und  nicht der  akkuraten
-        Darstellung der Linse  dient, ist hier nicht das  gleiche Symbol f\"ur
-        die Linse wie in der Versuchsanleitung benutzt worden.%
+    \resizebox{\textwidth}{!}{\input{images/versuchsanordnung.tex}}
+    \caption{%
+        Versuchsanordnung, schematisch
     }
-    \label{fig:varphi}
-\end{minipage}
+    \label{fig:versuchsanordnung:schema}
+\end{figure}
 
-F\"ur  den Winkel  $\frac{\varphi}{2}$ wurde  die Geometrie  der Laserstrahlen
-ausgemessen: Die Distanz $d_L$ zwischen den  beiden Strahlen beim Eintreten in
-die Linse und die Distanz $d_f$  zwischen der Linse und dem Kreuzungspunkt der
-Laserstrahlen. Die Bestimmung des Schnittwinkels ist  dann nur noch eine Sache
-von ein wenig Trigonometrie.
+\begin{figure}[h!t]
+    \centering
+    \resizebox{.67\textwidth}{!}{\input{images/versuchsanordnungPhoto.tex}}
+    \caption{%
+        Versuchsanordnung, Vogelperspektive. Anordnung ist gr\"osstenteils mit
+        dem Schema aus Abbildung \ref{fig:versuchsanordnung:schema} identisch.
+    }
+    \label{fig:versuchsanordnung:birdseye}
+\end{figure}
 
-F\"ur   die  Distanzen   ergaben  sich   folgende  Werte,   mit  gesch\"atzten
-Unsicherheiten:
+\begin{figure}[h!t]
+    \centering
+    \includegraphics[width=.67\textwidth]{images/versuchsanordnung2.jpeg}
+    \caption{%
+        Versuchsanordnung,   andere   Perspektive. Messleitung   Sichtbar   im
+        Hintergrund.
+    }
+    \label{fig:versuchsanordnung:perspective}
+\end{figure}
+
+% ---------------------------------------------------------------------------- $
+\clearpage
+\subsection{Messger\"ate}
+\label{subsec:messgerate}
+% ---------------------------------------------------------------------------- $
+
+\begin{table}[h!t]
+    \centering
+    \caption{Ger\"ateliste}
+    \begin{tabular}{ll}
+        \toprule
+        \textsc{Ger\"at}
+        & \textsc{Typ}
+        \\
+
+        \midrule
+
+        Oszilloskop
+        & LeCroy WaveRunner 64MXi-A
+        \\
+
+        Laser
+        & JDS Uniphase 1122P, \SI{4}{\milli\watt}, polarisiert, $\lambda = \SI{632,8}{\nano\meter}$
+        \\
+
+        Pumpe
+        & %TODO
+        \\
+
+        Durchflussmesser
+        & %TODO
+        \\
+
+        Detektor
+        & Hamamatsu H9656-02 Photomultiplier
+        \\
+
+        Linse $L_1$
+        & %TODO
+        \\
+
+        Linse $L_2$
+        & \\
+
+        Messleitung
+        & Plexiglasrohr, Innendurchmesser \SI{40 \pm 0.5}{\milli\meter}
+        \\
+
+        Bandpassfilter
+        & Tiefpass: \SI{3}{\kilo\hertz} bis \SI{300}{\kilo\hertz}, Hochpass: \SI{0.3}{\kilo\hertz} bis \SI{30}{\kilo\hertz}
+        \\
+
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+% ---------------------------------------------------------------------------- $
+\clearpage
+\subsection{Ablauf}
+\label{subsec:ablauf}
+% ---------------------------------------------------------------------------- $
+
+Wie  erw\"ahnt,  ist eine  korrekte  justierung  dieses Versuches  f\"ur  eine
+erfolgreiche  Durchf\"uhrung von  grosser Wichtigkeit. Sie  beanspruchte einen
+betr\"achtlichen  Teil  der  zur   Verf\"ugung  stehenden  Zeit  (beinahe  die
+H\"alfte) und soll hier entsprechend auch gut dokumentiert werden.
+
+Die Krux am Ganzen ist, dass  die Laserstrahlen sich sauber in der Messleitung
+kreuzen und anschliessend korrekt in den Detektor gef\"uhrt werden.
+
+Dazu wurden zuerst an den in Abbildung \ref{fig:justierung} mit blauen Kreuzen
+markierten  Punkten die  H\"ohe  der Laserstrahlen  gemessen  und mittels  der
+Spiegel (siehe auch  Abbildung \ref{fig:spiegel}) und der Linse  $L_1$ auf die
+gleiche H\"ohe eingestellt (so gut als m\"oglich, dieses Verfahren alleine ist
+noch nicht genau genug).
+
+\begin{figure}[h!t]
+    \centering
+    \resizebox{.67\textwidth}{!}{\input{images/justierung.tex}}
+    \caption{%
+        Referenzpunkte f\"ur Kalibrierung (blau markiert)
+    }
+    \label{fig:justierung}
+\end{figure}
+
+Anschliessend wurde
+%TODO: Instrument
+benutzt,   um   die   beiden   Laserstrahlen   auf   eine   Wand   gegen\"uber
+der   Versuchsanordnung  zu   projizieren. Dies   erm\"oglichte  eine   exakte
+Zusammenf\"uhrung  der Laserstrahlen. Danach  wurde  sichergestellt, dass  die
+Streuungen und Reflexionen der Strahlen,  welche zur\"uck in Richtung Detektor
+gingen, alle auf gleicher H\"ohe lagen. Abbildung \ref{fig:lensL1} zeigt diese
+Strahlen vor ihrer Justierung.
+
+Letzlich wurde \"uberpr\"uft, dass  der Kreuzungspunkt der gestreuten Strahlen
+genau in der Blende (sichtbar in Abbildung \ref{fig:versuchsanordnung:blende})
+lag, und die Blende so weit als m\"oglich geschlossen.
+
+\begin{figure}[h!t]
+    \centering
+    \includegraphics[width=.67\textwidth]{images/spiegel.jpeg}
+    \caption{%
+        Die beiden Spiegel und der Strahlteiler. Die Spiegel k\"onnen vestellt
+        werden, um die Verl\"aufe der Strahlen aufeinander abzustimmen.
+    }
+    \label{fig:spiegel}
+\end{figure}
+
+
+\begin{figure}[h!t]
+    \centering
+    \includegraphics[width=.67\textwidth]{images/linse.jpeg}
+    \caption{%
+        Die  Linsen  $L_1$ (links,  gross)  und  $L_2$ (rechts,  im  schwarzen
+        rechteckigen  Rahmen). Ebenfalls  sichtbar   sind  einige  Reflexionen
+        der  Laserstrahlen am  Rahmen  von $L_2$,  bevor  sie justiert  worden
+        sind. Nach der Justierung liegen alle vier Punkte auf gleicher H\"ohe.
+    }
+    \label{fig:lensL1}
+\end{figure}
+
+\begin{figure}[h!t]
+    \centering
+    \resizebox{.67\textwidth}{!}{\input{images/blende.tex}}
+    \caption{%
+        Linse  $L_2$, Blende  und Photomultiplier. Die  Blende kann  verstellt
+        werden,  um  m\"oglichst  nur  das  vom Str\"omungsteilchen  gestreute
+        Laserlicht in den Photomultiplier zu lassen.
+    }
+    \label{fig:versuchsanordnung:blende}
+\end{figure}
+
+Die  Kreuzung  der   Laserstrahlen  in  der  Messleitung   kann  in  Abbildung
+\ref{fig:laserkreuzung} gesehen werden.
+
+\begin{figure}[h!t]
+    \centering
+    \resizebox{.67\textwidth}{!}{\input{images/beams.tex}}
+    \caption{%
+        Aufname      der     sich      kreuzenden     Strahlen      in     der
+        Messleitung. Wasserstr\"omung   geht   von   unten  nach   oben,   die
+        Laserstrahlen treffen von links auf die Messleitung.
+    }
+    \label{fig:laserkreuzung}
+\end{figure}
+
+Nachdem die Apparatur justiert war, wurden vier Messungen durchgef\"uhrt:
 
 \begin{itemize}
     \item
-        $ d_L = \SI{52.5 \pm 0.5}{\milli\meter}$
+        Eine experimentelle \"Uperpr\"ufung der Brennweite von Linse $L_1$,
     \item
-        $ d_f = \SI{130 \pm 1}{\milli\meter}$
+        das  Verhalten  der  Str\"omungsgeschwindigkeit   auf  der  Achse  der
+        Messleitung  bei Durchflussraten  zwischen \SI{0.5}{\liter\per\minute}
+        und \SI{7.5}{\liter\per\minute},
+    \item
+        das  Geschwindigkeitsprofil   \"uber  den  gesamten   Querschnitt  der
+        Messleitung bei \SI{0.5}{\liter\per\minute} (laminarer Fall) und
+    \item
+        das  Geschwindigkeitsprofil   \"uber  den  gesamten   Querschnitt  der
+        Messleitung bei \SI{7.5}{\liter\per\minute} (turbulenter Fall).
 \end{itemize}
 
-Der halbe Schnittwinkel ergibt sich dann zu:
-
-\begin{equation}
-    \label{eq:varphi_half}
-    \frac{\varphi}{2} = \arctan \frac{\frac{d_L}{2}}{d_f}
-\end{equation}
-
-Der kleinstm\"ogliche Winkel ergibt sich aus der Kombination von
-$d_L = \SI{52}{\milli\meter}$
-und
-$d_f = \SI{131}{\milli\meter}$
-und
-bel\"auft sich auf
-$\frac{\varphi}{2} = \SI{11.23}{\degree}$,
-der gr\"osstm\"ogliche Winkel korrespondiert mit
-$d_L = \SI{53}{\milli\meter}$
-und
-$d_f = \SI{129}{\milli\meter}$
-und ergibt
-$\frac{\varphi}{2} = \SI{11.61}{\degree}$,
-was sich zusammenf\"uhren l\"asst auf einen Schnittwinkel von:
-
-\begin{equation}
-    \label{eq:varphi_result}
-    \varphi = \SI{11.42 \pm 0.19}{\degree} \cdot 2 = \SI{22.8 \pm 0.4}{\degree}
-\end{equation}
-
-Die   Bestimmung   von   $\varphi$   ist   schematisch   auch   in   Abbildung
-\ref{fig:varphi} dargestellt.
+%TODO: Grunds\"atzlich: What happens when we do this? Might already have been explained
+% in arbeitsgrundlagen.
