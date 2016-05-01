@@ -56,7 +56,7 @@ Das Geh\"ause kann in den Abbildungen \ref{fig:versuchsanordnung:birdseye} und
 
 % ---------------------------------------------------------------------------- $
 \clearpage
-\subsection{Messger\"ate}
+\subsection{Ger\"ate}
 \label{subsec:messgerate}
 % ---------------------------------------------------------------------------- $
 
@@ -80,7 +80,7 @@ Das Geh\"ause kann in den Abbildungen \ref{fig:versuchsanordnung:birdseye} und
         \\
 
         Pumpe
-        & %TODO
+        & \SI{0.5}{\liter\per\minute} bis \SI{7.5}{\liter\per\minute} %TODO: modell
         \\
 
         Durchflussmesser
@@ -110,6 +110,72 @@ Das Geh\"ause kann in den Abbildungen \ref{fig:versuchsanordnung:birdseye} und
     \end{tabular}
 \end{table}
 
+% ---------------------------------------------------------------------------- $
+\clearpage
+\subsection{Erwartete Reynoldszahlen und Signalfrequenzen}
+\label{subsec:expectations}
+% ---------------------------------------------------------------------------- $
+
+Anhand der zur Verf\"ugung stehenden Leistung  der Pumpe und der Geometrie der
+Apparatur kann an dieser Stelle  bereits abgesch\"atzt werden, welcher Bereich
+f\"ur die Reynoldszahl ungef\"ahr abdeckbar sein wird. Zur Erinnerung:
+
+\begin{equation}
+    \label{eq:reynolds1}
+    \mathit{Re} = \frac{\rho \cdot v_{\mathrm{m}} \cdot L}{\eta}
+\end{equation}
+
+Umrechnung der Durchflussraten in \si{\cubic\meter\per\second}:
+\begin{align}
+    \label{eq:Q:siconform}
+    \dot{V}_{\mathrm{min}} = \SI{0.5}{\liter\per\minute} = \SI{8.3e-6}{\cubic\meter\per\second}
+    \\
+    \dot{V}_{\mathrm{max}} = \SI{7.5}{\liter\per\minute} = \SI{125e-6}{\cubic\meter\per\second}
+\end{align}
+
+Der Querschnitt des Rohres:
+\begin{equation}
+    \label{eq:cross_section}
+    A = \pi \cdot R^2 = \SI{0.00126}{\meter\squared}
+\end{equation}
+
+Daraus lassen sich nun die mittleren Geschwindigkeiten f\"ur die schw\"achste
+und st\"arkste Pumpeneinstellung bestimmen:
+\begin{align}
+    \label{eq:min_max_speed}
+    v_{\mathrm{m,min}} = \frac{\dot{V}_{\mathrm{min}}}{A} = \SI{0.0066}{\meter\per\second}
+    \\
+    v_{\mathrm{m,max}} = \frac{\dot{V}_{\mathrm{max}}}{A} = \SI{0.099}{\meter\per\second}
+\end{align}
+
+Womit man f\"ur die Reynoldszahlen er\"alt:
+\begin{align}
+    \label{eq:reynolds:range}
+    Re_{\mathrm{min}} = \frac{\rho \cdot v_{\mathrm{m,min}} \cdot 2R}{\eta} = 264
+    \\
+    Re_{\mathrm{max}} = \frac{\rho \cdot v_{\mathrm{m,max}} \cdot 2R}{\eta} = 3960
+\end{align}
+
+\begin{conditions}
+    \rho & \SI{1000}{\kilo\gram\per\cubic\meter} \\
+    R    & \SI{20}{\milli\meter} \\
+    \eta & \SI{1.002}{\milli\pascal\second} (\emph{Quelle:} Kuchling, Tabelle 6)
+\end{conditions}
+
+Ebenfalls    lassen    sich     mit    den    errechneten    Geschwindigkeiten
+$v_{\mathrm{m,min}}$ und  $v_{\mathrm{m,max}}$ ungef\"ahre Aussagen zu  den zu
+erwartenden  Signalfrequenzen machen. Nat\"urlich  werden die  Frequenzen noch
+davon abweichen, abh\"angig  davon, ob man gerade ein  Teilchen mit h\"ohrerer
+oder  tieferer Geschwindigkeit  gemessen hat. Es  geht hier  lediglich um  die
+Gr\"ossenordnung, sodass der Bandpassfilter jeweils korrekt eingestellt werden
+kann. Es wurde mit $\varphi = \SI{30}{\degree}$ gerechnet.
+
+\begin{align}
+    \label{eq:expected_freqs}
+    \Delta\,f_{\mathrm{min}} &= \frac{2\sin\left(\frac{\varphi}{2}\right) \cdot v}{\lambda} = \SI{10}{\kilo\hertz} \\
+    \Delta\,f_{\mathrm{max}} &= \frac{2\sin\left(\frac{\varphi}{2}\right) \cdot v}{\lambda} = \SI{156}{\kilo\hertz}
+\end{align}
+
 
 % ---------------------------------------------------------------------------- $
 \clearpage
@@ -117,7 +183,7 @@ Das Geh\"ause kann in den Abbildungen \ref{fig:versuchsanordnung:birdseye} und
 \label{subsec:ablauf}
 % ---------------------------------------------------------------------------- $
 
-Wie  erw\"ahnt,  ist eine  korrekte  justierung  dieses Versuches  f\"ur  eine
+Wie  erw\"ahnt,  ist eine  korrekte  Justierung  dieses Versuches  f\"ur  eine
 erfolgreiche  Durchf\"uhrung von  grosser Wichtigkeit. Sie  beanspruchte einen
 betr\"achtlichen  Teil  der  zur   Verf\"ugung  stehenden  Zeit  (beinahe  die
 H\"alfte) und soll hier entsprechend auch gut dokumentiert werden.

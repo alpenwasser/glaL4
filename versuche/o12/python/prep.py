@@ -34,16 +34,16 @@ lambd      = sp.Symbol('lambd')
 #exit()r
 
 # Average flow velocity in laminar flow
-vr_lam = v_max * (1-r**2/R**2)
+#vr_lam = v_max * (1-r**2/R**2)
 #v_avg_lam = sp.integrate(vr_lam * r, (r, 0, R)) / R
 #sp.pprint(v_avg_lam)
 
 vr_lam_2 = delta_p * R**2 / (4 * eta * l) * (1 - r**2 / R**2)
-#Q = sp.integrate(vr_lam_2 * 2 * sp.pi * r, (r, 0, R))
-#sp.pprint(Q)
+Q = sp.integrate(vr_lam_2 * 2 * sp.pi * r, (r, 0, R))
+sp.pprint(Q)
 
 # Average flow speed, turbulent
-vr_turb = v_max * (1-r/R)**(1/k)
+#vr_turb = v_max * (1-r/R)**(1/k)
 #v_avg_turb = (1/(sp.pi * R**2) * sp.integrate(vr_turb * 2 * sp.pi * r, (r, 0, R))).doit()
 #sp.pprint(v_avg_turb)
 
@@ -67,6 +67,6 @@ vr_turb = v_max * (1-r/R)**(1/k)
 #fig.savefig('flow-profiles.png')
 #fig.savefig('flow-profiles.pgf')
 
-v = (f * lambd)/(2 * sp.sin(phi/2))
-sp.pprint(sp.diff(v,f))
-sp.pprint(sp.diff(v,phi))
+#v = (f * lambd)/(2 * sp.sin(phi/2))
+#sp.pprint(sp.diff(v,f))
+#sp.pprint(sp.diff(v,phi))

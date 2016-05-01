@@ -130,82 +130,301 @@ Signale die gleiche Amplitude haben, was die Sache etwas vereinfacht):
              \right)
 \end{equation}
 
+Nun wird  in einem Detektor  jedoch nicht  die Schwebung selbst,  sondern ihre
+Intensit\"at gemessen. Diese ist als das Quadrat der Schwebung definiert:
+
+\begin{equation}
+    \label{eq:intensity}
+    \begin{split}
+        I(t) &= S^2(t) \\
+             &= A^2           \cdot \left( \cos^2(\omega_1 \cdot t) + \cos^2(\omega_2 \cdot t) + 2 \cdot \cos(\omega_1 \cdot t) \cdot \cos(\omega_2 \cdot t) \right) \\
+             &= \frac{A^2}{2} \cdot \left( 1 + \cos(2\omega_1 \cdot t) + \cos(2\omega_2 \cdot t) + 4 \cdot \cos(\omega_1 \cdot t)\cos(\omega_2 \cdot t) \right) \\
+             &= \frac{A^2}{2} \cdot \left( 2 + \cos(2\omega_1 \cdot t) + \cos(2\omega_2 \cdot t) + 2 \cdot \cos\left((\omega_1 + \omega_2) \cdot t \right) + 2 \cdot \cos\left( (\omega_1 - \omega_2) \cdot t \right) \right)
+    \end{split}
+\end{equation}
+
+Der  Detektor ist  im Vergleich  zur Lichtfrequenz  ziemlich langsam  und kann
+somit  die  Schwingungen  der h\"oheren  Frequenzen  $2\omega_1$,  $2\omega_2$
+und  $\omega_1  +   \omega_2$  nicht  detektieren,  wohl   aber  die  langsame
+Schwebungsfrequenz $\omega_1 - \omega_2$. Methematisch  kann man dies als eine
+Mittelung \"uber  eine Zeit in  der Gr\"ossenordnung von  $\frac{1}{\abs{f_1 -
+f_2}}$  betrachten.   In  diesem  Falle werden  die  schnelleren  Schwingungen
+ausgemittelt  und verschwinden,  lediglich der  langsamste Anteil  bleibt noch
+\"ubrig. Dies ergibt f\"ur das im Detektor ausgewertete Signal:
+
+\begin{equation}
+    \label{eq:schwebungResult}
+    I^{*} = A^2 \cdot \bigg( 1 + \cos\Big((\omega_1 - \omega_2) \cdot t \Big) \bigg)
+\end{equation}
+
+\begin{figure}[h!t]
+    \centering
+    \resizebox{0.6\textwidth}{!}{\input{images/heterodyning.pgf}}
+    \caption{%
+        Konstruktion  einer Schwebung  aus einzelnen  Frequenzen. Zuoberst das
+        gesamte Signal, dann die drei h\"oherfrequenten Anteile und am Schluss
+        das  Signal,  welches  vom  Detektor  gesehen  werden  kann. Abbildung
+        \ref{fig:schwebung2} zeigt noch  eine \"Uberlagerung des Gesamtsignals
+        mit der langsamen Schwingung.
+    }
+    \label{fig:schwebung}
+\end{figure}
+
+\begin{figure}[h!t]
+    \centering
+    \resizebox{0.8\textwidth}{!}{\input{images/heterodyning2.pgf}}
+    \caption{%
+        Erg\"anzung  zu  Abbildung  \ref{fig:schwebung}. Gesamtschwingung  mit
+        schnellen Anteilen in blau und  dem im Detektor ausgewerteten langsame
+        Anteil in rot
+    }
+    \label{fig:schwebung2}
+\end{figure}
+
+Nun   kann   man    aus   dem   detektierten   Signal    (rot   in   Abbildung
+\ref{fig:schwebung2}) die Geschwindigkeit  des Streuteilchens bestimmen (unter
+der  Annahme,  dass  es  gleich  schnell  wie  die  Str\"omung  ist,  was  bei
+ausreichend  kleiner  Teilchengr\"osse  der  Fall ist),  indem  man  Gleichung
+\ref{eq:splitFreqsDelta}  nach $v$  aufl\"ost  und  $\frac{f_0}{c} =  \lambda$
+substituiert, was auf folgende Formel f\"uhrt:
+
+\begin{equation}
+    \label{eq:vArbeitsGrundlagen}
+    v = \frac{\lambda \cdot f_{Detektor}}{2 \cdot \sin\left(\frac{\varphi}{2}\right)}
+\end{equation}
+
+\begin{conditions}
+    \lambda       & Wellenl\"ange des Laserlichts \\
+    f_{Detektor} & vom Detektor gemessene Frequenz \\
+    \varphi       & Kreuzungswinkel der Laserstrahlen \\
+\end{conditions}
+
+
 % ---------------------------------------------------------------------------- %
-\clearpage
 \subsection{Grundlagen aus der Fluid-Dynamik}
 \label{subsec:fluiddynamik}
 % ---------------------------------------------------------------------------- %
 
-\subsubsection{Vorbereitung auf Messaufgaben}
+Es sollen an dieser Stelle einige f\"ur den Versuch relevante Grundlagen aus
+der Fluiddynamik erl\"autert werden.
 
-3.1 -- Zusammenhang zwischen maximaler und durchschnittlicher Str\"omungsgeschwindigkeit im laminaren Fall
 
-\textbf{fix: avg over flaeche}
+% ---------------------------------------------------------------------------- %
+\subsubsection{Laminare vs. Turbulente Str\"omung, Reynoldszahl}
+\label{subsubsec:laminarVsTurb}
+% ---------------------------------------------------------------------------- %
+
+Eine  Str\"omung,  die  durch  ein  zylindrisches  Rohr  fliesst,  wird  nicht
+\"uberall  die  gleiche  Geschwindigkeit  haben. An  der  Kontaktfl\"ache  mit
+dem  Rohr   wird  die   Flussgeschwindigkeit  null  sein   (Randbedingung  der
+entsprechenden Differentialgleichung), w\"ahrend sie im Inneren des Rohres ein
+Str\"omungsprofil  mit  verschiedenen  Geschwindigkeiten, abh\"angig  von  der
+radialen Position, aufweist.
+
+Der Verlauf  dieses Str\"omungsprofils  kann grob  in zwei  F\"alle aufgeteilt
+werden:
+
+\begin{itemize}
+    \item
+        \textbf{laminares  Str\"omungsprofil:} Es   bilden  sich  Hohlzylinder
+        mit  ziemlich konstanter  Fliessgeschwindigkeit  heraus (Linien,  wenn
+        man  einen   L\"angsschnitt  betrachtet). Die  Fliessgeschwindigkeiten
+        des     Fluids     zwischen     diesen     Schichten     unterschieden
+        sich    nur    minimal. Schematisch     dargestellt    in    Abbildung
+        \ref{fig:laminaresProfil} schematisch dargestellt.
+    \item
+        \textbf{turbulentes     Str\"omungsprofil:} Ab    einer     bestimmten
+        Fliessgeschwindigkeit bilden  sich keine  sauberen Str\"omungszylinder
+        mehr heraus, das Fluid  wird durchmischt und durchwirbelt. Schematisch
+        dargestellt in Abbildung \ref{fig:turbulentesProfil}.
+\end{itemize}
+
+\begin{minipage}[t]{0.475\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/laminare-stroemung.png}
+    \captionof{figure}{laminares Str\"omungsprofil \emph{Quelle:} Versuchsanleitung}
+    \label{fig:laminaresProfil}
+\end{minipage}
+\begin{minipage}[t]{0.475\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/turbulente-stroemung.png}
+    \captionof{figure}{turbulentes  Str\"omungsprofil \emph{Quelle:} Versuchsanleitung}
+    \label{fig:turbulentesProfil}
+\end{minipage}
+
+\vspace{1em}
+Zur Beurteilung, ob man es mit laminarem oder turbulentem Fluss zu tun hat, wird
+die \emph{Reynoldszahl} herangezogen, die wie folgt definiert ist:
+
 \begin{equation}
-    \label{eq:laminar:v_max:v_avg}
-    \frac{v(r)}{v_{max}} = \frac{1}{v_{max} \cdot R} \cdot \int_0^R\!v(r) \, \mathrm{d}r
-    = \frac{1}{R} \cdot \int_0^R \! 1 - \frac{r^2}{R^2} \, \mathrm{d}r
-    = \frac{1}{2}
+    \label{eq:reynolds}
+    \mathit{Re} = \frac{\rho \cdot v_{\mathrm{m}} \cdot L}{\eta}
 \end{equation}
 
-3.2 -- Zusammenhang zwischen maximaler und durchschnittlicher Str\"omungsgeschwindigkeit im turbulenten Fall:
 
-\begin{align}
-    \label{eq:turbulent:v_max:v_avg}
-    v(r) &= v_{max} \cdot \left( 1 - \frac{r}{R} \right) ^ \frac{1}{k}
-    \\
-    v_m &= \frac{1}{\pi \cdot R^2} \cdot \int_0^R \! v(r) \cdot 2 \cdot \pi \cdot r \, \mathrm{d}r
-    \\
-    \frac{v_m}{v_{max}} &= \frac{2}{R^2} \cdot \int_0^R \! \left(1 - \frac{r}{R} \right) ^ \frac{1}{k} \cdot r \, \mathrm{d}r = \frac{2 \cdot k^2}{(k + 1) \cdot (2k + 1)}
-\end{align}
+\begin{conditions}
+    \rho            & Dichte des Fluids \\
+    v_{\mathrm{m}}  & mittlere Str\"omungsgeschwindigkeit \\
+    L               & eine typische Abmessung \\
+    \eta            & dynamische Viskosit\"at des Fluids (Materialkonstante) \\
+\end{conditions}
 
-3.3 -- Vergleich von laminarem und turbulentem Str\"omungsprofil
+Die Reynoldszahl  ist eine dimensionslose \"Ahnlichkeitszahl,  die dazu dient,
+Systeme gleicher  Form aber verschiedener Abmessungen  miteinander vergleichen
+zu k\"onnen. Die  Ursache ihrer  Notwendigkeit ergibt  sich daraus,  dass sich
+Fluide auf verschiedenen Gr\"ossenskalen  nicht gleich verhalten. Zum Beispiel
+ist Wasser f\"ur mikroskopische Lebewesen sehr z\"ahfl\"ussig, im Gegensatz zu
+einem  Lebewesen  unserer  Gr\"ossenordnung. Selbst Luft  ist  f\"ur  kleinste
+Lebewesen dickfl\"ussig.
 
-%\begin{figure}[h!t]
-%    \centering
-%    \includegraphics[width=\textwidth]{images/laminar-vs-turbulent.png}
-%    \caption{%
-%        Laminares vs. turbulente Str\"omungsprofile
-%    }
-%    \label{fig:dopplereffekt}
-%\end{figure}
+Will  man das  Verhalten  eines modellierten  Systems (z.B. Flugzeugmodell  in
+einem Windkanal) in  einem Fluid mit der Realit\"at  vergleichen, m\"ussen die
+Reynoldszahlen des Modellversuchs und der Realit\"at \"ubereinstimmen.
+
+Im Falle von zylindrischen Rohrleitungen  hat man experimentell bestimmt, dass
+die  zu  verwendete  characteristische  L\"ange $L$  mit  dem  Rohrdurchmesser
+gleichzusetzen  ist   und  dass  die   Str\"omung  bis  zu   einer  kritischen
+Reynoldszahl $\mathit{Re}_{krit} \approx 2000$ noch laminar ist.
+
+Es sei darauf hingewiesen, dass  die kritische Reynoldszahl von der Systemform
+abh\"angt; f\"ur eine Trompete wird $\mathit{Re}_{krit}$ anders sein.
 
 
-\clearpage
-3.4 -- Volumenstrom und Rohrradius bei gleichem Druckgef\"alle
+% ---------------------------------------------------------------------------- %
+\subsubsection{Str\"omungsprofile}
+\label{subsubsec:stromungsprofile}
+% ---------------------------------------------------------------------------- %
 
-(via Sympy)
+Aufgrund der Reibung innerhalb eines Fluids ist die Str\"omungsgeschwindigkeit
+innerhalb eines  Fluids meist \"ortlich variabel. Normalerweise  wird dies mit
+einem Str\"omungsfeld  $\vec{v}(x,y,z)(t)$ beschrieben. Im  station\"aren Fall
+f\"allt die Zeitabh\"angigkeit heraus und man erh\"alt $\vec{v}(x,y,z)$.
 
+In  diesem  Versuch  werden lediglich  rotationssymmetrische  Str\"omungen  in
+zylindrischen  Rohrleitungen   betrachtet,  womit  sich   das  Str\"omungsfeld
+aufgrund radialer Symmetrie zu $\vec{v}(x,y,z) = \vec{v}(r)$ vereinfacht.
+
+Liegt laminare Str\"omung vor, kann das Str\"omungsprofil analytisch berechnet
+werden; das  Resultat ist das  Gesetz von Hagen-Poiseuille;  ein parabolisches
+Str\"omungsprofil, abgebildet in Abbildung \ref{fig:hagenPoiseuille}.
+
+\begin{equation}
+    \label{eq:laminarprofile}
+    v(r) = \frac{\Delta\,p \cdot R^2}{4 \cdot \eta \cdot l} \cdot \left( 1 - \frac{r^2}{R^2} \right) = v_{\mathrm{max}} \cdot \left( 1 - \frac{r^2}{R^2} \right)
+\end{equation}
+
+
+\begin{conditions}
+    r                & radiale Position                                    \\
+    R                & Radius der Rohrleitung                              \\
+    \Delta\,p        & Druckdifferenz \"uber Leitungsst\"uck der L\"ange l \\
+    \eta             & dynamische Viskosit\"at                             \\
+    l                & L\"ange des betrachteten Rohrst\"uckes              \\
+    v_{\mathrm{max}} & maximale Str\"omungsgeschwindigkeit                 \\
+\end{conditions}
+
+\begin{figure}[h!t]
+    \centering
+    \includegraphics[width=0.67\textwidth]{images/hagen-poiseuille.png}
+    \caption{Gesetz von Hagen-Poiseuille \emph{Quelle:} Versuchsanleitung}
+    \label{fig:hagenPoiseuille}
+\end{figure}
+
+Will man den Volumenstrom bestimmen, ist dazu das Str\"omungsprofil \"uber den
+Querschnitt zu  integrieren (aufgrund der radialen  Symmetrie vereinfacht sich
+das Integral zu einer Integration \"uber den Radius):
+
+\begin{equation}
+    \label{eq:volumenstrom:laminar}
+    \dot{V} = \int_{Rohrquerschnitt} v(r) \, \mathrm{d}F = \int_0^R v(r) \cdot 2 \pi r \cdot \mathrm{d}r
+            = \frac{\pi \cdot R^2 \cdot v_{\mathrm{max}}}{2}
+\end{equation}
+
+Daraus    l\"asst    sich    nun     leicht    der    Zusammenhang    zwischen
+durchschnittlicher   Str\"omungsgeschwindigkeit   $v_{\mathrm{m}}$   und   der
+maximalen  Str\"omungsgeschwindigkeit  im  laminaren  Fall  $v_{\mathrm{max}}$
+herleiten:
+
+\begin{equation}
+    \label{eq:vm_vmax:laminar}
+    \frac{v_{\mathrm{m}}}{v_{\mathrm{max}}} = \frac{1}{2}
+\end{equation}
+
+Man kann  auch den Zusammenhang  zwischen dem Volumenstrom und  dem Rohrradius
+bei gleichem  Druckgef\"alle untersuchen. Dabei wird  f\"ur $v_{\mathrm{max}}$
+der in Gleichung \ref{eq:laminarprofile}  bereits angetroffene Wert eingesetzt
+und  die Formel  anschliessend  \"uber die  Fl\"ache integriert. Das  Resultat
+lautet:
 
 \begin{equation}
     \label{eq:q:r}
-    Q = \frac{\pi \cdot R^4 \cdot \Delta \, p}{8 \cdot \eta \cdot l}
+    \begin{split}
+        \dot{V} &= \int_{0}^R \frac{\Delta\,p \cdot R^2}{4 \cdot \eta \cdot l} \cdot \left( 1 - \frac{r^2}{R^2} \right) \, \mathrm{d}r \\
+                &= \frac{\pi \cdot R^4 \cdot \Delta \, p}{8 \cdot \eta \cdot l}
+    \end{split}
 \end{equation}
 
+Es ergibt sich also eine Abh\"angigkeit vom Rohrradius in vierter Potenz!
 
-3.5 -- Reynoldszahlen
+Zur L\"osung  der Integrale aus Gleichungen  \ref{eq:volumenstrom:laminar} und
+\ref{eq:q:r}  wurde Sympy  benutzt;  das zugeh\"orige  Script  kann in  Anhang
+\ref{app:python:Qlaminar}  auf  Seite  \pageref{app:python:Qlaminar}  gefunden
+werden.
+
+Im turbulenten  Fall ist die  Sache nicht mehr  ganz so einfach. In  der Mitte
+wird  das  Geschwindigkeitsprofil  abgeflacht  und  entlang  der  Wand  bilden
+sich  eine  Grenzschicht  mit grossen  Geschwindigkeitsunterschieden  aus. Die
+Geschwindigkeit nimmt gegen die Mitte des Rohres nur noch wenig zu.
+
+\begin{figure}[h!t]
+    \centering
+    \resizebox{0.8\textwidth}{!}{\input{images/turbProfile.pgf}}
+    \caption{%
+        Turbulentes   Str\"omungsprofil   (eine  Rohrh\"alfte),   vereinfachte
+        Darstellung   basierend    auf   dem   Potenzgesetz    aus   Gleichung
+        \ref{eq:potenzgesetz}.
+    }
+    \label{fig:turbProfile}
+\end{figure}
+
+H\"aufig kommt  in dieser Situation ein  ph\"anomenologisches Potenzgesetz zur
+Anwending:
 
 \begin{equation}
-    \label{eq:reynolds1}
-    Re = \frac{\rho \cdot v_m \cdot L}{\eta}
+    \label{eq:potenzgesetz}
+    v(r) = v_{\mathrm{max}} \cdot \left( 1 - \frac{r}{R} \right)^{\frac{1}{k}}
 \end{equation}
 
+\begin{conditions}
+    v_{\mathrm{max}} & maximale Str\"omungsgeschwindigkeit \\
+    r                & radiale Position                    \\
+    R                & Radius Leitung                      \\
+    k                & Modellierungsparameter; abh\"angig von Reynoldszahl, experimentell zu bestimmen \\
+\end{conditions}
+Typische Werte f\"ur $k$ sind:
+
+\begin{conditions}
+    k = 6 & $\mathit{Re} \approx 4000$ \\
+    k = 7 & $\mathit{Re} \approx 10^5$ \\
+    k = 9 & $\mathit{Re} \approx 10^6$ \\
+\end{conditions}
+
+Will  man  hier  den  Volumenstrom  bestimmen,  ist  ebenfalls  $v(r)$  \"uber
+den  Querschnitt  zu  integrieren. Anschliessend   kann  daraus  die  mittlere
+Str\"omungsgeschwindigkeit  und  das   Verh\"altnis  derselben  zur  maximalen
+Str\"omungsgeschwindigkeit gebildet werden.
+
 \begin{align}
-    \dot{V}_{min} = \SI{0.5}{\liter\per\minute} = \SI{8.3e-6}{\cubic\meter\per\second}
+    \label{eq:turbulent:Q}
+    v(r) &= v_{max} \cdot \left( 1 - \frac{r}{R} \right) ^ \frac{1}{k}
     \\
-    \dot{V}_{max} = \SI{7.5}{\liter\per\minute} = \SI{125e-6}{\cubic\meter\per\second}
+    \dot{V} &= \int_0^R \! v(r) \cdot 2 \cdot \pi \cdot r \, \mathrm{d}r = \frac{2 \cdot \pi \cdot v_{\mathrm{max}} \cdot R^2 \cdot k^2}{(k + 1) \cdot (2k + 1)}
     \\
-    A = \pi \cdot R^2 = \SI{0.00126}{\meter\squared}
+    v_{\mathrm{m}} &= \frac{\dot{V}}{R^2 \cdot \pi} = \frac{2 \cdot v_{\mathrm{max}} \cdot k^2}{(k + 1) \cdot (2k + 1)}
     \\
-    v_{m,min} = \frac{\dot{V}_{min}}{A} = \SI{0.0066}{\meter\per\second}
-    \\
-    v_{m,max} = \frac{\dot{V}_{max}}{A} = \SI{0.099}{\meter\per\second}
-    \\
-    Re_{min} = \frac{\rho \cdot v_{m,min} \cdot 2R}{\eta} = 264
-    \\
-    Re_{max} = \frac{\rho \cdot v_{m,max} \cdot 2R}{\eta} = 3960
-    \\
-    %f_{Signal} = \frac{f_2 - f_1}{2} = \frac{f_0}{2} \cdot \left( \left(1 + \frac{v}{c}\sin\left(\frac{\varphi}{2}\right)\right) - \left(1 - \frac{v}{c}\sin\left(\frac{\varphi}{2}\right)\right)\right)
-    %= f_0 \cdot \frac{v}{c} \sin\left(\frac{\varphi}{2}\right)
-    \Delta\,f = \frac{2\sin\left(\frac{\varphi}{2}\right) \cdot v}{\lambda} = \left\{ \SI{13.11}{\hertz}, \SI{197.5}{\hertz} \right\} \mathrm{~f\"ur \varphi = \SI{30}{\degree}}
+    \frac{v_{\mathrm{m}}}{v_{\mathrm{max}}} &= \frac{2 \cdot k^2}{(k + 1) \cdot (2k + 1)}
 \end{align}
+
+Auch  hier  wurde Sympy  eingesetzt. Das  zugeh\"orige  Script ist  in  Anhang
+\ref{app:python:Qturb} auf Seite \pageref{app:python:Qturb} zu finden.
+
