@@ -6,14 +6,6 @@ besteht, ist dieses Kapitel etwas umfangreicher als \"ublich.
 \label{subsec:versuchsanordnung}
 % ---------------------------------------------------------------------------- $
 
-Grunds\"atzlich  folgt   der  Versuchsaufbau  den  in   den  Arbeitsgrundlagen
-beschriebenen    Angaben. Die   gesamte    Anordnung   ist    schematisch   in
-Abbildung     \ref{fig:versuchsanordnung:schema}    dargestellt,     Abbildung
-\ref{fig:versuchsanordnung:birdseye}  ist   die  entsprechende  fotographische
-Dokumentation.  Abbildung  \ref{fig:versuchsanordnung:perspective} zeigt einen
-anderen Blickwinkel auf die Apparaturen.
-
-
 \begin{figure}[h!t]
     \centering
     \resizebox{\textwidth}{!}{\input{images/versuchsanordnung.tex}}
@@ -42,6 +34,25 @@ anderen Blickwinkel auf die Apparaturen.
     }
     \label{fig:versuchsanordnung:perspective}
 \end{figure}
+
+Grunds\"atzlich  folgt   der  Versuchsaufbau  den  in   den  Arbeitsgrundlagen
+beschriebenen    Angaben. Die   gesamte    Anordnung   ist    schematisch   in
+Abbildung     \ref{fig:versuchsanordnung:schema}    dargestellt,     Abbildung
+\ref{fig:versuchsanordnung:birdseye}  ist   die  entsprechende  fotographische
+Dokumentation.  Abbildung  \ref{fig:versuchsanordnung:perspective} zeigt einen
+anderen Blickwinkel auf die Apparaturen.
+
+Um \"Uberlastung  durch Umgebungslicht zu verhindern,  ist der Photomultiplier
+zusammen mit der Blende und der Linse $L_2$ in einem Geh\"ause eingelassen. Um
+die Blende einzustellen und die Lage der Laserstrahlen zu \"uberpr\"ufen, kann
+dieses  abgenommen  werden,  es  sollte aber  bei  Aktivierung  des  Detektors
+montiert sein. Der Detektor  wird zwar nicht sofort zerst\"ort,  falls er ohne
+Geh\"ause  eingeschaltet  wird,  der  Vorgang ist  aber  der  Lebensdauer  des
+Ger\"ats nicht zutr\"aglich.
+
+Das Geh\"ause kann in den Abbildungen \ref{fig:versuchsanordnung:birdseye} und
+\ref{fig:versuchsanordnung:perspective} gesehen werden.
+
 
 % ---------------------------------------------------------------------------- $
 \clearpage
@@ -135,7 +146,8 @@ benutzt,   um   die   beiden   Laserstrahlen   auf   eine   Wand   gegen\"uber
 der   Versuchsanordnung  zu   projizieren. Dies   erm\"oglichte  eine   exakte
 Zusammenf\"uhrung  der Laserstrahlen. Danach  wurde  sichergestellt, dass  die
 Streuungen und Reflexionen der Strahlen,  welche zur\"uck in Richtung Detektor
-gingen, alle auf gleicher H\"ohe lagen. Abbildung \ref{fig:lensL1} zeigt diese
+gingen,  alle  auf  gleicher  H\"ohe   lagen,  indem  H\"ohe  und  Winkel  der
+Messleitung korrekt eingestellt wurden. Abbildung \ref{fig:lensL1} zeigt diese
 Strahlen vor ihrer Justierung.
 
 Letzlich wurde \"uberpr\"uft, dass  der Kreuzungspunkt der gestreuten Strahlen
@@ -206,6 +218,35 @@ Nachdem die Apparatur justiert war, wurden vier Messungen durchgef\"uhrt:
         das  Geschwindigkeitsprofil   \"uber  den  gesamten   Querschnitt  der
         Messleitung bei \SI{7.5}{\liter\per\minute} (turbulenter Fall).
 \end{itemize}
+
+Zur  Auswertung wurde  dabei das  Oszilloskop benutzt. Es  erhielt sowohl  das
+ungefilterte Messsignal direkt from Photomultiplier (sehr verrauscht) wie auch
+das gefilterte Signal aus dem Bandpassfilter.
+
+Um  den  Bandpassfiter  korrekt  einstellen zu  k\"onnen,  musste  nat\"urlich
+bekannt sein, in  welcher Gr\"ossenordnung sich die  zu erwartenden Frequenzen
+ungef\"ahr befinden w\"urden.
+%TODO: Frequency calculations
+
+Das  Oszilloskop f\"uhrte  am  eingehenden  Zeitsignal eine  Fourier-Zerlegung
+durch (unterstes Signal in Abbildung
+% TODO: abbildung Oszi
+).  In  diesem  Signal  wurden  dann mittels  der  beiden  Cursor  eine  obere
+und  untere  Limite der  bei  einer  Einstellung (Position  des  Schnittpunkts
+der  Laserstrahlen  in  der  Messleitung,  Flussgeschwindigkeit)  auftretenden
+Frequenzen  abgelesen. Zur  Auswertung  wird  aus diesen  der  Mittelwert  mit
+Unsicherheit gebildet (siehe Abschnitt.
+%TODO Referenz
+auf Seite
+%TODO Referenz
+).
+
+Bei  \"andernden  Einstellungen musste  jeweils  darauf  geachtet werden,  den
+Bandpass  entsprechend  anzupassen. Geht  dies   vergessen,  werden  zwar  die
+Messresultate nicht  verf\"alscht, es  macht aber  das Erkennen  der gesuchten
+Streu-Ereignisse zunehmend  schwierig oder verhindert sie  vollkommen, je nach
+Frequenzbereich.
+
 
 %TODO: Grunds\"atzlich: What happens when we do this? Might already have been explained
 % in arbeitsgrundlagen.
