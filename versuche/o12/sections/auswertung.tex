@@ -1,10 +1,22 @@
 Zuerst    wurde    die    Brennweite    von    Linse    $L_1$    experimentell
 \"uberpr\"uft. Anschliessend wurde die Str\"omungsgeschwindigkeit in der Mitte
-des  Messohres  f\"ur  verschiedene Durchflussraten  gemessen. Zuletzt  wurden
+des  Messrohres f\"ur  verschiedene  Durchflussraten gemessen. Zuletzt  wurden
 die  Str\"omungsprofile f\"ur  den  laminaren Fall  und  den turbulenten  Fall
 aufgenommen.
 
+Die   erwarteten   Ver\"aufe   der  Str\"omungsprofile   sind   in   Abbildung
+\ref{fig:laminarVsturbulent} dargestellt.
+
+\begin{figure}[h!t]
+    \centering
+    \resizebox{.9\textwidth}{!}{\input{images/flow-profiles.pgf}}
+    \caption{Laminares vs. turbulente Str\"omungsprofile, normiert}
+    \label{fig:laminarVsturbulent}
+\end{figure}
+
+
 % ---------------------------------------------------------------------------- $
+\clearpage
 \subsection{Schnittwinkel der Laserstrahlen}
 \label{subsec:varphi}
 % ---------------------------------------------------------------------------- $
@@ -70,23 +82,28 @@ Der Vorgang ist ist schematisch in Abbildung \ref{fig:varphi} dargestellt.
     \label{fig:varphi}
 \end{minipage}
 
-
 % ---------------------------------------------------------------------------- $
-\subsection{Str\"omungsgeschwindigkeit auf Achse der Messleitung}
-\label{subsec:achse}
+\clearpage
+\subsection{Str\"omungsgeschwindigkeit und Unsicherheiten}
+\label{subsec:vUncert}
 % ---------------------------------------------------------------------------- $
 
-Gemessen wurden zwar Frequenzen, es sollen in den Regressionen jedoch direkt die
-zugeh\"origen Geschwindigkeiten angegeben werden. Diese k\"onnen mit der folgenden
-Formel ermittelt werden:
+
+Gemessen  wurden  zwar  Frequenzen,  es  sollen  in  den  Regressionen  jedoch
+direkt die zugeh\"origen Geschwindigkeiten  angegeben werden. Da diese Angaben
+f\"ur  den  Rest  dieses  Kapitels  ben\"otigt  werden,  werden  zur  besseren
+\"Ubersichtlichkeit  die  n\"otigen   Informationen  zur  Fehlerrechnung  hier
+aufgef\"uhrt anstatt in einem separaten Kapitel im Nachhinein.
+
+Die Flussgeschwindigkeiten k\"onnen mit der folgenden Formel ermittelt werden:
 
 \begin{equation}
-    \begin{split}
+    %\begin{split}
         \label{eq:deltaF2}
-        \Delta\,f &= f_0 \cdot \frac{2 \cdot v}{c} \cdot \sin\left( \frac{\varphi}{2}\right) \\
-                  &= \frac{c}{\lambda_{Laser}} \cdot \frac{2 \cdot v}{c} \cdot \sin\left( \frac{\varphi}{2}\right)\\
-                  &= \frac{2 \cdot v}{\lambda_{Laser}} \cdot \sin\left( \frac{\varphi}{2}\right)
-    \end{split}
+        \Delta\,f = f_0 \cdot \frac{2 \cdot v}{c} \cdot \sin\left( \frac{\varphi}{2}\right)
+                  = \frac{c}{\lambda_{Laser}} \cdot \frac{2 \cdot v}{c} \cdot \sin\left( \frac{\varphi}{2}\right)
+                  = \frac{2 \cdot v}{\lambda_{Laser}} \cdot \sin\left( \frac{\varphi}{2}\right)
+    %\end{split}
 \end{equation}
 
 Aufgel\"ost nach $v$ ergibt dies:
@@ -102,10 +119,6 @@ Aufgel\"ost nach $v$ ergibt dies:
     \lambda_{Laser} & Wellenl\"ange des Lasers                \\
     \varphi         & Kreuzungswinkel der Laserstrahlen (\SI{22.8 \pm 0.4}{\degree} gem\"ass vorigem Abschnitt) \\
 \end{conditions}
-
-Da die Flussgeschwindigkeit  $v$ f\"ur die Auswertung  selbst verwendet werden
-soll, werden  zur besseren Leserlichkeit  hier auch gleich  die entsprechenden
-Unsicherheiten bestimmt, anstatt diese in ein separates Kapitel auszulagern.
 
 Es  sind  hier   sowohl  Unsicherheiten  im  Winkel  $\varphi$   wie  auch  in
 der  gemessenen  Frequenz  vorhanden. Somit   ist  f\"ur  die  Bestimmung  der
@@ -149,10 +162,22 @@ Ergibt sich somit:
 \end{equation}
 
 Formel   \ref{eq:gauss:teilchen:eingesetzt}  und   die  Messwerte   wurden  in
-einem  Python-Script  ausgewertet,  das in  Anhang  \ref{app:python:rohrmitte}
-auf  Seite \pageref{app:python:rohrmitte}  zu  finden ist. Die  resultierenden
-Flussgeschwindigkeiten    mit   ihren    Unsicherheiten   sind    in   Tabelle
-\ref{tab:rohrmitte} zu finden.
+Python-Scripts   ausgewertet,  die   in  Anhang   \ref{app:python}  ab   Seite
+\pageref{app:python} zu finden sind.
+
+
+
+% ---------------------------------------------------------------------------- $
+\clearpage
+\subsection{Str\"omungsgeschwindigkeit auf Achse der Messleitung}
+\label{subsec:achse}
+% ---------------------------------------------------------------------------- $
+
+
+Das   zu   diesem   Abschnitt   ge\"ohrende  Python-Script   ist   in   Anhang
+\ref{app:python:rohrmitte}   auf   Seite   \pageref{app:python:rohrmitte}   zu
+finden. Die  resultierenden  Flussgeschwindigkeiten mit  ihren  Unsicherheiten
+sind in Tabelle \ref{tab:rohrmitte} zu finden.
 
 \begin{table}[h!t]
     \centering
@@ -299,6 +324,7 @@ zusammen mit den zugeh\"origen Durchflusswerten.
 
 
 % ---------------------------------------------------------------------------- $
+\clearpage
 \subsection{Str\"omungsprofil im laminaren Fall}
 \label{subsec:profil:laminar}
 % ---------------------------------------------------------------------------- $
@@ -477,3 +503,144 @@ Python-Script f\"ur die Resultate aus  Tabelle \ref{tab:laminar} ist in Anhang
 \clearpage
 \subsection{Str\"omungsprofil im turbulenten Fall}
 \label{subsec:profil:turbulent}
+% ---------------------------------------------------------------------------- $
+
+Das Vorgehen ist  in diesem Falle identisch wie im  vorherigen Abschnitt.  Das
+Python-Script  f\"ur  die Resultate  aus  Tabelle  \ref{tab:turbulent} ist  in
+Anhang  \ref{app:python:laminar} auf  Seite \pageref{app:python:turbulent}  zu
+finden.
+
+Aus  Zeitgr\"unden  wurden  f\"ur  das  turbulente  Str\"omungsprofil  weniger
+Messungen gemacht als f\"ur das laminare.
+
+\begin{table}[h!t]
+    \centering
+    \caption{Messwerte f\"ur Str\"omungsprofil im turbulenten Fall ($\dot{V} = \SI{7}{\liter\per\minute}$)}
+    \label{tab:turbulent}
+    \begin{tabular}{SSSSSS}
+        \toprule
+        {Position (\si{\milli\meter})}
+        & {$f_{low}$ (\si{\kilo\hertz})}
+        & {$f_{high}$ (\si{\kilo\hertz})}
+        & {$\overline{f}$ (\si{\kilo\hertz})}
+        & {$s_{\overline{f}}$ (\si{\kilo\hertz})}
+        & {$v$ (\si{\centi\meter\per\second})}
+        \\
+
+        \midrule
+
+        -10.67
+        & 49.59
+        & 63.13
+        & 56.36
+        & 6.77
+        & 17.9 \pm 2.2
+        \\
+
+        -8
+        & 53.77
+        & 67.77
+        & 60.77
+        & 7.0
+        & 18.7 \pm 0.4
+        \\
+
+        -5.33
+        & 57.74
+        & 69.51
+        & 63.625
+        & 5.885
+        & 19.6 \pm 2.4
+        \\
+
+        -2.67
+        & 54.17
+        & 68.96
+        & 61.596
+        & 7.395
+        & 21.4 \pm 1.3
+        \\
+
+        0
+        & 63.41
+        & 71.31
+        & 67,36
+        & 3.95
+        & 21.6 \pm 2.0
+        \\
+
+        2.67
+        & 61.58
+        & 74.02
+        & 67.8
+        & 6.22
+        & 21.2 \pm 1.2
+        \\
+
+        5.33
+        & 62.86
+        & 70.18
+        & 66.52
+        & 3.66
+        & 22.6 \pm 0.7
+        \\
+
+        8.0
+        & 60.6
+        & 69.23
+        & 64.915
+        & 4.315
+        & 20.5 \pm 1.3
+        \\
+
+        10.67
+        & 55.42
+        & 68.84
+        & 62.13
+        & 6.71
+        & 19.8 \pm 2.2
+        \\
+
+        12.0
+        & 54.53
+        & 71.46
+        & 62.995
+        & 8.465
+        & 20.0 \pm 2.7
+        \\
+
+        13.33
+        & 48.01
+        & 67.83
+        & 57.92
+        & 9.91
+        & 18.4 \pm 3.2
+        \\
+
+        14.67
+        & 47.52
+        & 66.09
+        & 56.805
+        & 9.285
+        & 18.1 \pm 3.0
+        \\
+
+        16.00
+        & 44.77
+        & 65.85
+        & 55.31
+        & 10.54
+        & 17.6 \pm 3.4
+        \\
+
+        17.33
+        & 38.98
+        & 66.98
+        & 52.98
+        & 14
+        & 16.9 \pm 4.5
+        \\
+
+        \bottomrule
+    \end{tabular}
+\end{table}
