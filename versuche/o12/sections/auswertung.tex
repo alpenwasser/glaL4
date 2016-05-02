@@ -324,6 +324,78 @@ sind in Tabelle \ref{tab:rohrmitte} zu finden.
 Die Werte aus  der letzten Spalte wurden anschliessend  in QtiPlot eingegeben,
 zusammen mit den zugeh\"origen Durchflusswerten.
 
+Wie      im     Abschnitt      \ref{subsubsec:laminarVsTurb}     ab      Seite
+\pageref{subsubsec:laminarVsTurb} erw\"ahnt, liegt  die kritische Reynoldszahl
+f\"ur den Fall einer zylindrischen Messleitung bei ungef\"ahr $2000$. Will man
+die f\"ur unsere  Anordnung zugeh\"orige Str\"omungsgeschwindigkeit bestimmen,
+l\"ost  man zuerst  Formel \ref{eq:reynolds}  von Seite  \pageref{eq:reynolds}
+nach der mittleren Str\"omungsgeschwindigkeit auf, und erh\"alt:
+
+\begin{equation}
+    \label{eq:v:reynolds_krit}
+    v_{\mathrm{m,krit}} = \frac{\mathit{Re_{\mathrm{krit}}} \cdot \eta}{\rho \cdot L} = \frac{\mathit{Re_{\mathrm{krit}}} \cdot \eta}{\rho \cdot 2R} = \SI{0.05}{\meter\per\second}
+\end{equation}
+
+\begin{conditions}
+    \mathit{Re_{\mathrm{krit}}} & 2000 \\
+    \eta                        & \SI{1}{\milli\pascal\second} \\
+    \rho                        & \SI{1000}{\kilo\gram\per\cubic\meter} \\
+    R                           & \SI{20}{\milli\meter} \\
+\end{conditions}
+
+Da $v_{\mathrm{m}} = \frac{\dot{v}}{A}$, kann daraus nun die zugeh\"orige Durchflussrate
+bestimmt werden:
+
+\begin{equation}
+    \label{eq:Q:reynolds_krit}
+    \dot{V}_{\mathrm{krit}} = v_{\mathrm{m,krit}} \cdot A = \SI{0.000063}{\cubic\meter\per\second} \approx \SI{3.78}{\liter\per\minute}
+\end{equation}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/rohrmitte.pdf}
+    \caption{%
+        Verlauf    von     Durchflussrate    und    Str\"omungsgeschwindigkeit
+        in     der     Rohrmitte.     \textcolor{red}{\textbf{rot:}} Kritische
+        Reynoldszahl        $\mathit{Re}_{\mathrm{krit}}       =        2000$.
+        \textcolor{magenta}{\textbf{magenta:}} Theoretischer    Verlauf    der
+        Str\"omungsgeschwindigkeit  gem\"ass   $v_{\mathrm{max}}  =   2  \cdot
+        \frac{\dot{V}}{A}$
+    }
+    \label{fig:flowspeed:middle}
+\end{figure}
+
+Abbildung  \ref{fig:flowspeed:middle}  stellt  die  Messpunkte  der  maximalen
+Str\"omungsgeschwindigkeit  (Rohrmitte) in  Abh\"angigkeit der  Durchflussrate
+$\dot{V}$  dar.   Vergleicht  man  die  magenta-farbene  Linie  (theoretischer
+Verlauf  der  maximalen  Flussgeschwindigkeit im  laminaren  Bereich  gem\"ass
+$v_{\mathrm{max}} =  2 \cdot  \frac{\dot{V}}{A}$) mit den Messungen,  kann man
+erkennen,  dass die  Messungen  konsistent \"uber  den theoretisch  erwarteten
+Resultaten liegen.
+
+Der Grund daf\"ur ist mir  momentan nicht ersichtlich. Eine m\"ogliche Ursache
+w\"are  z.B., dass  die Pumpe  mehr Durchfluss  lieferte, als  das Messger\"at
+anzeigte. Aufgrund  der  Konsistenz der  Abweichungen  k\"onnte  ich mir  aber
+auch einen  systematischen Fehler  beim Ablesen  als Ursache  vorstellen (dass
+z.B.  h\"ohere Frequenzen  im abgelesenen  Spektrum aufgrund  des menschlichen
+Vorurteils   von  $mehr   =  besser$   bevorzugt  beim   Ablesen  wahrgenommen
+wurden). Alternativ k\"onnte es auch sein,  dass der Bandpassfilter nicht ganz
+optimal  eingestellt war,  und dass  somit h\"ohere  Frequenzen weniger  stark
+unterdr\"uckt wurden.
+
+Bei  den   ersten  Messungen   ging  die  Nachregelung    des  Bandpassfilters
+vergessen. Allerdings  wurde  dies bemerkt,  und  die  Messungen, welche  sich
+ausserhalb  des optimalen  Frequenzbereichs befanden,  wiederholt (siehe  auch
+Messprotokolle im Anhang ab  Seite \pageref{app:messprotokolle}. Daher bin ich
+mir  auch  bei dieser  m\"oglichen  Fehlerquelle  nicht  ganz sicher,  ob  sie
+wirklich Ursache f\"ur diese Abweichung ist.
+
+Schlussendlich   k\"onnte  es   nat\"urlich  auch   einfach  sein,   dass  die
+Fluiddynamik sich nicht ganz wie erwartet ver\"alt.
+
+Wollte man sicher  sein, w\"aren die Messungen und  Auswertung zu wiederholden
+und zu vergleichen; allenfalls auch mehrmals.
+
 
 % ---------------------------------------------------------------------------- $
 \clearpage
@@ -501,6 +573,23 @@ Python-Script f\"ur die Resultate aus  Tabelle \ref{tab:laminar} ist in Anhang
     \end{tabular}
 \end{table}
 
+Als Formel  zur Regression  wurde Gleichung \ref{eq:laminarprofile}  von Seite
+\pageref{eq:laminarprofile} benutzt. Fit-Variable war $v_{\mathrm{max}}$.
+
+\begin{figure}[h!t]
+    \centering
+    \includegraphics[width=\textwidth]{images/profil-laminar.pdf}
+    \caption{Regression an die Messpunkte des Str\"omungsprofils im laminaren Fall}
+    \label{fig:profile:turb}
+\end{figure}
+
+Als Resultat liefert QtiPlot:
+
+\begin{equation}
+    \label{eq:profile:laminar:regression:results:vmax}
+    v_{\mathrm{max}} = \SI{2.8461 \pm 0.043001}{\centi\meter\per\second}
+\end{equation}
+
 % ---------------------------------------------------------------------------- $
 \clearpage
 \subsection{Str\"omungsprofil im turbulenten Fall}
@@ -646,3 +735,32 @@ Messungen gemacht als f\"ur das laminare.
         \bottomrule
     \end{tabular}
 \end{table}
+
+Zur Regression and diese Daten wurde Gleichung \ref{eq:potenzgesetz} von Seite
+\pageref{eq:potenzgesetz} herangezogen, mit einer kleinen Modifikation. Da die
+Funktion in  der gegebenen Form ungerade  ist und somit f\"ur  negative Radien
+nicht das gew\"unschte Ergebnis liefert,  wurde zur Regression noch ein Betrag
+eingebaut:
+
+\begin{equation}
+    \label{eq:potenzgesetz:abs}
+    v(r) = v_{\mathrm{max}} \cdot \left( 1 - \abs*{\frac{r}{R}} \right)^{\frac{1}{k}}
+\end{equation}
+
+\begin{figure}[h!t]
+    \centering
+    \includegraphics[width=\textwidth]{images/profil-turbulent.pdf}
+    \caption{Regression f\"ur das Str\"omungsprofil im turbulenten Fall}
+    \label{fig:profile:turb}
+\end{figure}
+
+Gefittet wurde sowohl \"uber $k$ wie auch \"uber $v_{\mathrm{max}}$. Als Ergebnis
+liefert QtiPlot:
+
+\begin{align}
+    \label{eq:profile:turb:regression:results:k}
+    k &= 7.7453 \pm 1.4284
+    \\
+    \label{eq:profile:turb:regression:results:vmax}
+    v_{\mathrm{max}} &= \SI{22.109 \pm 0.43859}{\centi\meter\per\second}
+\end{align}
