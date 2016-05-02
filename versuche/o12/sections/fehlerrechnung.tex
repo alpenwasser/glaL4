@@ -1,0 +1,315 @@
+Zur Fehlerrechnung kann man nun  die mittels Regression bestimmten Werte f\"ur
+$v_{\mathrm{max}}$  und $k$  mittels der  Formel \ref{eq:volumenstrom:laminar}
+von  Seite  \pageref{eq:volumenstrom:laminar}   (laminarer  Fall)  und  Formel
+\ref{eq:turbulent:Q}  von  Seite \pageref{eq:turbulent:Q}  (turbulenter  Fall)
+\"uberpr\"ufen.
+
+Dazu werden  mittels dieser Formeln die  zu den Resultaten aus  der Regression
+geh\"orenden Volumenstr\"ome berechnet und diese anschliessend mit den Angaben
+auf dem Durchflussmesser verglichen.
+
+Zur Rekapitulation nochmals die mittels Regression bestimmten Werte:
+
+\begin{align}
+    \label{eq:profile:laminar:regression:results:vmax:rekap}
+    v_{\mathrm{max, laminar}} &= \SI{1.4026 \pm 0.018346}{\centi\meter\per\second}
+    \\
+    \label{eq:profile:turb:regression:results:k:rekap}
+    k &= 7.8876 \pm 1.5642
+    \\
+    \label{eq:profile:turb:regression:results:vmax:rekap}
+    v_{\mathrm{max, turbulent}} &= \SI{10.793 \pm 0.1572}{\centi\meter\per\second}
+\end{align}
+
+% ---------------------------------------------------------------------------- %
+\subsection{Laminares Str\"omungsprofil}
+\label{subsec:error:laminar}
+% ---------------------------------------------------------------------------- %
+
+Wie  in  den  Arbeitsgrundlagen  bei  Abbildung  \ref{fig:einlauf}  auf  Seite
+\pageref{fig:einlauf}  erw\"ahnt,  ist  die hier  benutzte  Messleitung  nicht
+wirklich  lang   genug,  damit   sich  ein  sauberes,   perfekt  parabolisches
+Str\"omungsprofil  im   laminaren  Fall  ausbilden  kann. Aus   der  Abbildung
+kann   abgelesen  werden,   dass   f\"ur  den   Fall  einer   \SI{0.9}{\meter}
+langen  Messleitung das  Ver\"altnis $\frac{v_{\mathrm{max}}}{v_{\mathrm{m}}}$
+ungef\"ahr \num{1.95}  anstatt \num{2} ist. Somit modifizieren  wir die Formel
+\ref{eq:volumenstrom:laminar}  leicht, und  setzen  in  den Nenner  \num{1.95}
+statt \num{2}, was folgende Formel ergibt:
+
+\begin{equation}
+    \label{eq:volumenstrom:laminar:rekap}
+    \overline{\dot{V}}_{\mathrm{laminar}} = \frac{\pi \cdot \overline{R}^2 \cdot \overline{v}_{\mathrm{max}}}{1.95} = \SI{0.542}{\liter\per\minute}
+\end{equation}
+
+\begin{conditions}
+    \overline{R} & \SI{20}{\milli\meter}, Radius der Messleitung \\
+    \overline{v}_{\mathrm{max}} & \SI{1.4026}{\centi\meter\per\second} \\
+\end{conditions}
+
+Zur   Bestimmung  der   zugeh\"origen  Unsicherheiten   wird  das   Gauss'sche
+Fehlerfortpflanzungsgesetz  ben\"otigt. Die  allgemeine   Formel  ist  bereits
+in  Gleichung \ref{eq:Gauss}  auf  Seite \pageref{eq:Gauss}  aufgef\"uhrt. Sie
+wird  nun angewandt  auf die  Formeln \ref{eq:volumenstrom:laminar:rekap}  und
+\ref{eq:turbulent:Q:rekap}.
+
+Dies ergibt f\"ur den Fehler im laminaren Fall:
+
+\begin{equation}
+    \label{eq:errorLaminar}
+    \begin{split}
+        s_{\overline{\dot{V}}} = \sqrt{
+            a
+            \left(
+            \cdot
+            \pi
+            \cdot
+            \overline{R}
+            \cdot
+            s_{\mathrm{\overline{v}}}
+            \right)^2
+            +
+            b
+            \cdot
+            \left(
+            \pi
+            \cdot
+            \overline{R}
+            \cdot
+            s_{\overline{R}}
+            \cdot
+            v_{\mathrm{max}}
+            \right)^2
+        }
+        =
+        \SI{0.0153}{\liter\per\second}
+    \end{split}
+\end{equation}
+
+\begin{conditions}
+    a                & \num{0.26298}                                                         \\
+    b                & \num{1.05194}                                                         \\
+    \overline{R}     & \SI{20}{\milli\meter}, Radius Messleitung                             \\
+    s_{\overline{v}} & \SI{0.018346}{\centi\meter\per\second}, Fehler von $v_{\mathrm{max}}$ \\
+    s_{\overline{R}} & \SI{0.25}{\milli\meter} (\emph{Quelle:} Versuchsanleitung)            \\
+    v_{\mathrm{max}} & \SI{1.402}{\centi\meter\per\second}                                   \\
+\end{conditions}
+
+Die Koeffizienten  $a$ und  $b$ ergeben  sich daraus,  dass im  Nenner \num{2}
+durch \num{1.95} ersetzt wurde. Bei \num{2} erg\"abe sich eine ``h\"ubschere''
+Formel.
+
+Wie auch  schon in  vorherigen Kapiteln wurde  f\"ur diese  Berechnungen SymPy
+benutzt, das  zugeh\"orige Script ist in  Anhang \ref{app:python:errorLaminar}
+auf Seite \pageref{app:python:errorLaminar} zu finden.
+
+Zusammengefasst also:
+
+\begin{equation}
+    \label{eq:error:laminar:final}
+    \dot{V}_{\mathrm{laminar}} = \SI{0.542 \pm 0.0153}{\liter\per\minute}
+\end{equation}
+
+% ---------------------------------------------------------------------------- %
+\subsection{Turbulentes Str\"omungsprofil}
+\label{subsec:error:turbulent}
+% ---------------------------------------------------------------------------- %
+
+Der Grundwert f\"ur den Durchfluss errechnet sich gem\"ass:
+
+\begin{equation}
+    \label{eq:turbulent:Q:rekap}
+    \overline{\dot{V}}_{\mathrm{turbulent}}
+        = \frac{
+            2
+            \cdot
+            \pi
+            \cdot
+            \overline{v}_{\mathrm{max}}
+            \cdot
+            \overline{R}^2
+            \cdot
+            \overline{k}^2
+        }{
+            (\overline{k} + 1)
+            \cdot
+            (2\overline{k} + 1)
+        }
+        =
+        \SI{6.792}{\liter\per\minute}
+\end{equation}
+
+\begin{conditions}
+    \overline{v}_{\mathrm{max}} & \SI{10.793}{\centi\meter\per\second}, aus Regression  \\
+    \overline{k}                & \num{7.8876}, aus Regression                          \\
+    \overline{R}                & \SI{20}{\milli\meter}, aus Versuchsanleitung          \\
+\end{conditions}
+
+Die   Anwendung   des   Gauss'schen  Fehlerfortpflanzungsgesetzes   ist   hier
+ziemlich   umst\"andlich. Es  muss   nach  der   Geschwindigket,  dem   Radius
+und   $k$   abgeleitet   werden. Es   wurde   auch   hier   ein   SymPy-Script
+benutzt,  zu  finden  in   Anhang  \ref{app:python:errorTurbulent}  auf  Seite
+\pageref{app:python:errorTurbulent}. Der Fehler des Durchflusses ergibt:
+
+\begin{equation}
+    \label{eq:errorTurbulent:simple}
+    s_{\overline{\dot{V}}} = \sqrt{ A^2 + B^2 + C^2 } = \SI{0.304}{\liter\per\minute}
+\end{equation}
+
+\noindent $A$, $B$ und $C$ sind dabei definiert als:
+
+\begin{align}
+    \label{eq:errorTurbulent:complicated}
+    A
+    &=
+    \frac{%
+        2
+        \cdot
+        \pi
+        \cdot
+        \overline{R}^2
+        \cdot
+        \overline{k}^2
+        \cdot
+        s_{\overline{v}}
+    }{%
+        (
+            \overline{k}
+            +
+            1
+        )
+        (
+            2
+            \cdot
+            \overline{k}
+            +
+            1
+        )
+    }
+    \\
+    B
+    &=
+    \frac{%
+        4
+        \cdot
+        \pi
+        \cdot
+        \overline{R}
+        \cdot
+        \overline{k}^2
+        \cdot
+        s_{\overline{R}}
+        \cdot
+        \overline{v}_{\mathrm{max}}
+    }{%
+        (
+            \overline{k}
+            +
+            1
+        )
+        (
+            2
+            \cdot
+            \overline{k}
+            +
+            1
+        )
+    }
+    \\
+    C
+    &=
+    s_{\overline{k}}
+    \cdot
+    \left(
+        \frac{%
+            4
+            \cdot
+            \pi
+            \overline{R}^2
+            \cdot
+            \overline{k}^2
+            \cdot
+            \overline{v}_{\mathrm{max}}
+        }{%
+            (
+                \overline{k}
+                +
+                1
+            )
+            \cdot
+            (
+                2
+                \cdot
+                \overline{k}
+                +
+                1
+            )^2
+        }
+        -
+        \frac{%
+            2
+            \cdot
+            \pi
+            \cdot
+            \overline{R}^2
+            \cdot
+            \overline{k}^2
+            \cdot
+            \overline{v}_{\mathrm{max}}
+        }{%
+            (
+                \overline{k}
+                +
+                1
+            )^2
+            \cdot
+            (
+                2
+                \cdot
+                \overline{k}
+                +
+                1
+            )
+        }
+        +
+        \frac{%
+            4
+            \cdot
+            \pi
+            \cdot
+            \overline{R}^2
+            \cdot
+            \overline{k}
+            \cdot
+            \overline{v}_{\mathrm{max}}
+        }{%
+            (
+                \overline{k}
+                +
+                1
+            )
+            \cdot
+            (
+                2
+                \cdot
+                \overline{k}
+                +
+                1
+            )
+        }
+    \right)
+\end{align}
+
+\begin{conditions}
+    \overline{R}                 & \SI{20}{\milli\meter}                 \\
+    \overline{k}                 & \num{7.8876}                          \\
+    \overline{v}_{\mathrm{max}}  & \SI{10.793}{\centi\meter\per\second}  \\
+    s_{\overline{v}}             & \SI{0.15720}{\centi\meter\per\second} \\
+    s_{\overline{R}}             & \SI{0.25}{\milli\meter}               \\
+    s_{\overline{k}}             & \num{1.572}                           \\
+\end{conditions}
+
+Zusammengefasst also:
+\begin{equation}
+    \label{eq:error:turbulent:final}
+    \dot{V}_{\mathrm{turbulent}} = \SI{6.792 \pm 0.304}{\liter\per\minute}
+\end{equation}

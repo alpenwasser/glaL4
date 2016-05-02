@@ -4,22 +4,22 @@ import numpy as np
 
 # Known Parameters
 lambd   = 632.8e-9
-phi_avg = 11.41 * np.pi / 180;
-phi_err =  0.19 * np.pi / 180;
+phi_avg = 22.82 * np.pi / 180;
+phi_err =  0.38 * np.pi / 180;
 
 # Measurements
 f_low  = np.array([
     49.59e3,53.77e3,57.74e3,
     54.17e3,63.41e3,61.58e3,
-    62.86e3,72.86e3,60.60e3,
-    55.42e3,54.43e3,48.01e3,
+    62.86e3,        60.60e3,
+    55.42e3,54.53e3,48.01e3,
     47.52e3,44.77e3,38.98e3])
 f_high = np.array([
-    63.13e3,67.77e3,59.51e3,
+    63.13e3,67.77e3,69.51e3,
     68.96e3,71.31e3,74.02e3,
-    70.18e3,69.23e3,68.23e3,
+    70.18e3,        69.23e3,
     68.84e3,71.46e3,67.83e3,
-    66.09e3,65.85e3,66.93e3])
+    66.09e3,65.85e3,66.98e3])
 idx = np.arange(f_low.size)
 
 # Calculate average frequencies and errors

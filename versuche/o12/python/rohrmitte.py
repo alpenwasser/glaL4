@@ -4,8 +4,8 @@ import numpy as np
 
 # Known Parameters
 lambd   = 632.8e-9
-phi_avg = 11.41 * np.pi / 180;
-phi_err =  0.19 * np.pi / 180;
+phi_avg = 22.82 * np.pi / 180;
+phi_err =  0.38 * np.pi / 180;
 
 # Measurements
 f_low  = np.array([
