@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
 import sympy as sp
-#import numpy as np
-#import matplotlib.pyplot as plt
 
 Q     = sp.Symbol('Q')
 s_Q   = sp.Symbol('s_Q')
@@ -12,7 +10,6 @@ v_max = sp.Symbol('v_max')
 s_v   = sp.Symbol('s_v')
 
 Q = sp.pi * R**2 * v_max / 1.95
-#Q = sp.pi * R**2 * v_max / 2
 
 s_Q = sp.sqrt( (sp.diff(Q,v_max) * s_v)**2 + (sp.diff(Q,R) * s_R)**2)
 

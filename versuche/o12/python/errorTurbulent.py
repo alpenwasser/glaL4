@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
 import sympy as sp
-#import numpy as np
-#import matplotlib.pyplot as plt
 
 Q     = sp.Symbol('Q')
 s_Q   = sp.Symbol('s_Q')
