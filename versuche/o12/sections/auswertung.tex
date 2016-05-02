@@ -557,8 +557,8 @@ Als Formel  zur Regression  wurde Gleichung \ref{eq:laminarprofile}  von Seite
 \begin{figure}[h!t]
     \centering
     \includegraphics[width=\textwidth]{images/profil-laminar.pdf}
-    \caption{Regression an die Messpunkte des Str\"omungsprofils im laminaren Fall}
-    \label{fig:profile:turb}
+    \caption{Gewichtete Regression an die Messpunkte des Str\"omungsprofils im laminaren Fall}
+    \label{fig:profile:laminar}
 \end{figure}
 
 Die  Regression  stimmt  recht  gut mit  den  Messpunkten  \"uberein. Es  kann
@@ -576,6 +576,8 @@ die zugeh\"origen Anmerkungen.
     \label{eq:profile:laminar:regression:results:vmax}
     v_{\mathrm{max}} = \SI{1.4026 \pm 0.018346}{\centi\meter\per\second}
 \end{equation}
+
+Es sei hier noch betont, dass eine \emph{gewichtete} Regression gemacht wurde.
 
 % ---------------------------------------------------------------------------- $
 \clearpage
@@ -737,7 +739,7 @@ eingebaut:
 \begin{figure}[h!t]
     \centering
     \includegraphics[width=\textwidth]{images/profil-turbulent.pdf}
-    \caption{Regression f\"ur das Str\"omungsprofil im turbulenten Fall}
+    \caption{Gewichtete Regression f\"ur das Str\"omungsprofil im turbulenten Fall.}
     \label{fig:profile:turb}
 \end{figure}
 
@@ -771,3 +773,5 @@ sowohl der Wert f\"ur $k$ wie auch f\"ur $v_{\mathrm{max}}$ sind einigermassen
 plausibel ($k$ ist  h\"oher als erwartet; gem\"ass Versuchsanleitung  ist $k =
 6$ f\"ur $\mathit{Re}  \approx 4000$, aber die  Gr\"ossenordnung scheint nicht
 schlecht zu stimmen).
+
+Auch hier wurde eine gewichtete Regression durchgef\"uhrt.
