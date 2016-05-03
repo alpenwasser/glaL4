@@ -343,39 +343,100 @@ nach der mittleren Str\"omungsgeschwindigkeit auf, und erh\"alt:
     R                           & \SI{20}{\milli\meter} \\
 \end{conditions}
 
-Da $v_{\mathrm{m}} = \frac{\dot{v}}{A}$, kann daraus nun die zugeh\"orige Durchflussrate
-bestimmt werden:
+Da  $v_{\mathrm{m}} =  \frac{\dot{V}}{A}$,  kann daraus  nun die  zugeh\"orige
+Durchflussrate bestimmt werden:
 
 \begin{equation}
     \label{eq:Q:reynolds_krit}
     \dot{V}_{\mathrm{krit}} = v_{\mathrm{m,krit}} \cdot A = \SI{0.000063}{\cubic\meter\per\second} \approx \SI{3.78}{\liter\per\minute}
 \end{equation}
 
-\clearpage
-\begin{figure}
+\begin{samepage}
+\begin{figure}[h!t]
     \centering
     \includegraphics[width=\textwidth]{images/rohrmitte.pdf}
-    \caption{%
+    \captionsetup{singlelinecheck=off}
+    \caption[foo bar]{%
         Verlauf    von     Durchflussrate    und    Str\"omungsgeschwindigkeit
-        in     der     Rohrmitte.     \textcolor{red}{\textbf{rot:}} Kritische
-        Reynoldszahl        $\mathit{Re}_{\mathrm{krit}}       =        2000$.
-        \textcolor{blue}{\textbf{blau:}} Theoretischer    Verlauf    der
-        Str\"omungsgeschwindigkeit  gem\"ass   $v_{\mathrm{max}}  =   2  \cdot
-        \frac{\dot{V}}{A}$
+        in     der     Rohrmitte. Es sind folgende Linien eingezeichnet:
+        \begin{itemize}
+            \item
+                rot: Durchfluss, welcher der kritischen Reynoldszahl von ca. \num{2000} entspricht gem\"ass Gleichung \ref{eq:Q:reynolds_krit}
+            \item
+                dunkel-cyan: theoretischer Verlauf der maximalen Str\"omungsgeschwindigkeit im laminaren Fall: $v_{\mathrm{max, laminar}} = 2 \cdot \frac{\dot{V}}{A}$
+            \item
+                blau: Regression f\"ur den Verlauf der maximalen Str\"omungsgeschwindigkeit im laminaren Fall: $v_{\mathrm{max, laminar}} = a \cdot \frac{\dot{V}}{A}$, mit Regressionsparameter $a = 1.5088 \pm 0.069746$
+            \item
+                magenta: theoretischer Verlauf der maximalen Str\"omungsgeschwindigkeit im turbulenten Fall: $v_{\mathrm{max, turbulent}} = \frac{\dot{V}}{A} \cdot \frac{(k + 1) \cdot (2k + 1)}{2 \cdot k^2}$, mit $k = 6$
+            \item
+                cyan: Regression f\"ur die maximale Str\"omungsgeschwindigkeit im turbulenten Fall: $v_{\mathrm{max, turbulent}} = \frac{\dot{V}}{A} \cdot \frac{(k + 1) \cdot (2k + 1)}{2 \cdot k^2}$, mit $k = 7.5276 \pm 0.20694$ als Regressionsparameter
+        \end{itemize}
     }
     \label{fig:flowspeed:middle}
 \end{figure}
 
-\nopagebreak
 Abbildung  \ref{fig:flowspeed:middle}  stellt  die  Messpunkte  der  maximalen
 Str\"omungsgeschwindigkeit  (Rohrmitte) in  Abh\"angigkeit der  Durchflussrate
-$\dot{V}$  dar.  Vergleicht  man die  blaue Linie  (theoretischer Verlauf  der
-maximalen Flussgeschwindigkeit im laminaren Bereich gem\"ass $v_{\mathrm{max}}
-=  2 \cdot  \frac{\dot{V}}{A}$) mit  den  Messungen, kann  man erkennen,  dass
-die  Messungen  mehr  oder  weniger   auf  der  Linie  liegen  f\"ur  niedrige
-Durchflussraten, und dann stets weiter davon abzuweichen beginnen.
+$\dot{V}$ dar.   Vergleicht man  die dunkel-cyan-farbene  Linie (theoretischer
+Verlauf  der  maximalen  Flussgeschwindigkeit im  laminaren  Bereich  gem\"ass
+$v_{\mathrm{max}} =  2 \cdot \frac{\dot{V}}{A}$)  mit den Messungen,  kann man
+erkennen, dass  die Messungen bei steigender  Durchflussrate vom theoretischen
+Verlauf abzuweichen beginnen.
 
+Die    Ursache   daf\"ur    liegt   in    der   zu    kurzen   Einlaufstrecke,
+wie    in    Abbildung    \ref{fig:ausbildungLaminareStromung}    auf    Seite
+\pageref{fig:ausbildungLaminareStromung}    dargestellt. Je     h\"oher    der
+Durchfluss,  um  so  gr\"osser   die  Abweichung  zwischen  theoretischem  und
+effektivem   Wert,  wie   auch  in   Abbildung  \ref{fig:einlauf}   auf  Seite
+\pageref{fig:einlauf} erkennbar.
 
+Auch beim  theoretischen Verlauf im  turbulenten Bereich liegen  die Messwerte
+etwas unter den theoretisch erwarteten Werten, jedoch nicht ganz so stark. Ich
+erkl\"are dies  damit, dass das  turbulente Profil eben  nicht parabelf\"ormig
+ist,  sondern   gegen  die   Mitte  der  Leitung   nur  noch   relative  flach
+ansteigt. Somit macht sich  die zu kurze Einlaufstrecke  vermutlich nicht mehr
+so stark bemerkbar
+
+Aus Neugier wurden f\"ur die beiden Bereiche (laminar, turbulent) jeweils noch
+eine gewichtete Regression durchgef\"uhrt,  einmal mit einem Koeffizienten $a$
+als Regressionsparameter (im laminaren Fall),  und im turbulenten Fall mit $k$
+als Regressionsparameter. Als Resultat lieferte QtiPlot:
+
+\begin{align}
+    \label{eq:rohrmitte:regressionresults}
+    \text{Regressions-Funktion: } v_{\mathrm{max, laminar}}     &= a \cdot \frac{\dot{V}}{A} \\
+    \text{Resultat: }                                                  a &= 1.5088 \pm 0.069746 \\
+    \text{Regressions-Funktion: } v_{\mathrm{max, turbulent}} &= \frac{\dot{V}}{A} \cdot \frac{(k + 1) \cdot (2k + 1)}{2 \cdot k^2} \\
+    \text{Resultat: }                                                  k &= 7.5276 \pm 0.20694
+\end{align}
+\end{samepage}
+
+Da sich  $a$ mit zunehmendem  Durchfluss eigentlich \"andert  (siehe Abbildung
+\ref{fig:einlauf}, Seite \pageref{fig:einlauf}\footnotemark[2]), sollte dieses
+Regressionsresultat nat\"urlich nicht einfach in eine Gleichung eingesetzt und
+verwendet werden. Die  Regression wurde  aber nicht durchgef\"uhrt,  um diesen
+Parameter  m\"oglichst genau  zu  bestimmen, sondern  um zu  veranschaulichen,
+dass  er  doch  recht  betr\"achtlich vom  theoretischen  Wert  eines  perfekt
+parabolischen Profils abweichen kann, was meines Erachtens gelungen ist.
+
+Der   Wert    f\"ur   $k$    ist   \"uber    dem   theoretischen    Wert   von
+\num{6}\footnotemark[3]. Dies  deckt sich  jedoch zumindest  einigermassen mit
+den  Ergebnissen der  Regression beim  turbulenten Str\"omungsprofil,  wie wir
+sp\"ater sehen werden.
+
+\footnotetext[2]{%
+    Der  in der  Regression bestimmte  Parameter $a$  taucht in  der Abbildung
+    nicht direkt  auf, ist jedoch  an das Verh\"altnis  von $v_{\mathrm{max}}$
+    und  $v_{\mathrm{m}}$  gebunden, weshalb  die  Abbildung  und der  in  der
+    Regression bestimte Parameter trotzdem eng zusammenh\"angen.
+}
+
+\footnotetext[3]{%
+    Wie in  den Arbeitsgrundlagen angemerkt,  variiert $k$ bei  \"Anderung der
+    Reynoldszahl im  Bereich von  mehreren Zehnerpotenzen lediglich  um einige
+    Inkremente, daher  wird $k$  approximativ \"uber den  betrachteten Bereich
+    zur Veranschaulichung in diesem Fall als konstant betrachtet.
+}
 
 % ---------------------------------------------------------------------------- $
 \clearpage
@@ -553,6 +614,8 @@ Python-Script f\"ur die Resultate aus  Tabelle \ref{tab:laminar} ist in Anhang
     \end{tabular}
 \end{table}
 
+\clearpage
+\begin{samepage}
 Als Formel  zur Regression  wurde Gleichung \ref{eq:laminarprofile}  von Seite
 \pageref{eq:laminarprofile} benutzt. Fit-Variable war $v_{\mathrm{max}}$.
 
@@ -568,11 +631,11 @@ gesehen  werden, dass  die  maximale Geschwindigkeit  in  der Rohrmitte  nicht
 ganz an  den Scheitelpunkt  der Parabel heranreicht. Die  Begr\"undung daf\"ur
 liegt  darin, dass  die Messleitung  nicht  gen\"ugend lang  ist, um  wirklich
 einen  vollst\"andig  laminaren  Fluss   herausbilden  zu  konnen  (zu  kleine
-Einlaufl\"ange). Gegen  die  Rohrmitte   wird  das  Str\"omungsprofil  dadurch
-gegebn\"uber der theoretischen Parabel abgeflacht. Siehe dazu auch Abbildungen
-\ref{fig:ausbildungLaminareStromung}   und    \ref{fig:einlauf}   auf   Seiten
-\pageref{fig:ausbildungLaminareStromung} respektive  \pageref{fig:einlauf} und
-die zugeh\"origen Anmerkungen.
+Einlaufl\"ange), wie auch im  vorigen Abschnitt erw\"ahnt. Gegen die Rohrmitte
+wird  das Str\"omungsprofil  dadurch   gegen\"uber  der theoretischen  Parabel
+abgeflacht. Siehe  dazu auch  Abbildungen \ref{fig:ausbildungLaminareStromung}
+und  \ref{fig:einlauf}   auf  Seiten  \pageref{fig:ausbildungLaminareStromung}
+respektive \pageref{fig:einlauf} und die zugeh\"origen Anmerkungen.
 
 \begin{equation}
     \label{eq:profile:laminar:regression:results:vmax}
@@ -580,6 +643,7 @@ die zugeh\"origen Anmerkungen.
 \end{equation}
 
 Es sei hier noch betont, dass eine \emph{gewichtete} Regression gemacht wurde.
+\end{samepage}
 
 % ---------------------------------------------------------------------------- $
 \clearpage
@@ -738,6 +802,8 @@ eingebaut:
     v(r) = v_{\mathrm{max}} \cdot \left( 1 - \abs*{\frac{r}{R}} \right)^{\frac{1}{k}}
 \end{equation}
 
+\clearpage
+\begin{samepage}
 \begin{figure}[h!t]
     \centering
     \includegraphics[width=\textwidth]{images/profil-turbulent.pdf}
@@ -745,8 +811,8 @@ eingebaut:
     \label{fig:profile:turb}
 \end{figure}
 
-Gefittet wurde sowohl \"uber $k$ wie auch \"uber $v_{\mathrm{max}}$. Als Ergebnis
-liefert QtiPlot:
+Regressionsparameter  waren $k$  und $v_{\mathrm{max}}$. Als  Ergebnis liefert
+QtiPlot:
 
 \begin{align}
     \label{eq:profile:turb:regression:results:k}
@@ -757,16 +823,17 @@ liefert QtiPlot:
 \end{align}
 
 Wie man  in Tabelle  \ref{tab:turbulent} und  Abbildung \ref{fig:profile:turb}
-unschwer  erkennen kann,  sind  die Unsicherheiten  bei  den Werten  teilweise
-recht   gross. Ich   erkl\"are  mir   dies   dadurch,   dass  das   turbulente
-Str\"omungsprofil eben nicht sauber ausgepr\"agt ist, wie es die Vereinfachung
-aus  Abbildung   \ref{fig:turbProfile}  von   Seite  \pageref{fig:turbProfile}
-allenfalls Glauben macht. Betrachtet man Abbildung \ref{fig:turbulentesProfil}
-auf  Seite  \pageref{fig:turbulentesProfil}, so  kann  man  erkennen, dass  in
+unschwer erkennen kann, sind die Unsicherheiten bei den Werten teilweise recht
+gross. Ich erkl\"are  mir dies dadurch, dass  das turbulente Str\"omungsprofil
+eben  nicht  so  sauber  ausgepr\"agt   ist,  wie  es  die  Vereinfachung  aus
+Abbildung \ref{fig:turbProfile} von Seite \pageref{fig:turbProfile} allenfalls
+Glauben  macht. Betrachtet   man  Abbildung   \ref{fig:turbulentesProfil}  auf
+Seite  \pageref{fig:turbulentesProfil},   so  kann   man  erkennen,   dass  in
 einer  turbulenten  Str\"omung  grob   gesagt  einiges  Chaos  herrscht  (oder
-eben: Turbulenzen). Die  Str\"omungsgeschwindigkeit kann  deshalb am  gleichen
-Ort  \"uber die  Zeit bedeutend  variieren, auch  wenn sie  gemittelt als  ein
-Profil angen\"ahert werden kann.
+eben: Turbulenzen). Die   Str\"omungsgeschwindigkeit  (und   somit  auch   die
+beobachteten  Frequenzen)  kann  deshalb  am  gleichen  Ort  \"uber  die  Zeit
+bedeutend  variieren, auch  wenn  sie gemittelt  als  ein Profil  angen\"ahert
+werden kann.
 
 Betrachtet man den Verlauf der Regression in Abbildung \ref{fig:profile:turb},
 kann   zumindest   auf  der   rechten   Seite   jedoch  eine   ganz   passable
@@ -777,3 +844,4 @@ plausibel ($k$ ist  h\"oher als erwartet; gem\"ass Versuchsanleitung  ist $k =
 schlecht zu stimmen).
 
 Auch hier wurde eine gewichtete Regression durchgef\"uhrt.
+\end{samepage}
