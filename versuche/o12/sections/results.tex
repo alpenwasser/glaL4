@@ -34,16 +34,17 @@ tabellarisch zusammen.
     \end{tabular}
 \end{table}
 
-\pgfplotsset{try min ticks = 2}
+\pgfplotsset{try min ticks = 4}
 \begin{figure}[ht!]
     \centering
     \begin{tikzpicture}
         \begin{axis}[
+            %hide y axis,
             width=.67\textwidth,
-            height=.3\textwidth,
+            height=.25\textwidth,
             title = {\textbf{Durchflussrate, laminar}},
             xlabel = {Durchflussrate ($\si{\liter\per\minute}$)},
-            symbolic y coords = {Durchflusssensor,experimentelles Resultat},
+            symbolic y coords = {\textcolor{white}{a},Durchflusssensor,experimentelles Resultat,\textcolor{white}{b}},
         ]
         \addplot+[
             only marks,error bars/.cd,
@@ -54,22 +55,32 @@ tabellarisch zusammen.
             (0.54,experimentelles Resultat) +- (0.02,0)
             (0.56,Durchflusssensor) +- (0.01,0)
         };
+        \addplot+[
+            only marks,
+            mark options={color=white},
+            color=white,
+        ]
+        coordinates {
+            (0.54,\textcolor{white}{b})
+            (0.56,\textcolor{white}{a})
+        };
         \end{axis}
     \end{tikzpicture}
     \caption{Vergleich Durchflusssensor und experimentelles Resultat, laminare Str\"omung}
     \label{fig:results:laminar}
 \end{figure}
 
-\pgfplotsset{try min ticks = 2}
+\pgfplotsset{try min ticks = 4}
 \begin{figure}[ht!]
     \centering
     \begin{tikzpicture}
         \begin{axis}[
+            %hide y axis,
             width=.67\textwidth,
-            height=.3\textwidth,
+            height=.25\textwidth,
             title = {\textbf{Durchflussrate, turbulent}},
             xlabel = {Durchflussrate ($\si{\liter\per\minute}$)},
-            symbolic y coords = {Durchflusssensor,experimentelles Resultat},
+            symbolic y coords = {\textcolor{white}{a},Durchflusssensor,experimentelles Resultat,\textcolor{white}{b}},
         ]
         \addplot+[
             only marks,error bars/.cd,
@@ -79,6 +90,15 @@ tabellarisch zusammen.
         coordinates {
             (6.8,experimentelles Resultat) +- (0.3,0)
             (7.0,Durchflusssensor) +- (0.01,0)
+        };
+        \addplot+[
+            only marks,
+            mark options={color=white},
+            color=white,
+        ]
+        coordinates {
+            (6.8,\textcolor{white}{b}) +- (0.3,0)
+            (7.0,\textcolor{white}{a}) +- (0.3,0)
         };
         \end{axis}
     \end{tikzpicture}

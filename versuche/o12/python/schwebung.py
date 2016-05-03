@@ -44,8 +44,8 @@ ax2.legend()
 ax3.legend()
 ax4.legend()
 ax5.legend()
-fig1.subplots_adjust(bottom=0.05,top=0.95,left=0.05,right=0.95)
-#fig1.savefig('heterodyning.pgf')
+fig1.subplots_adjust(bottom=0.01,top=0.99,left=0.01,right=0.99)
+fig1.savefig('heterodyning.pgf')
 
 w = 20
 w1 = 0.98*w
@@ -63,7 +63,7 @@ ax6.legend()
 fig1.subplots_adjust(bottom=0.05,top=0.95,left=0.05,right=0.95)
 #fig2.savefig('heterodyning2.pgf')
 
-plt.show()
+#plt.show()
 
 #ax1.tick_params(labelsize=16)
 #ax2.tick_params(labelsize=16)

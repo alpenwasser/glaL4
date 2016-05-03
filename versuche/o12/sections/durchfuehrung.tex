@@ -17,7 +17,7 @@ besteht, ist dieses Kapitel etwas umfangreicher als \"ublich.
 
 \begin{figure}[h!t]
     \centering
-    \resizebox{.67\textwidth}{!}{\input{images/versuchsanordnungPhoto.tex}}
+    \resizebox{.85\textwidth}{!}{\input{images/versuchsanordnungPhoto.tex}}
     \caption{%
         Versuchsanordnung, Vogelperspektive. Anordnung ist gr\"osstenteils mit
         dem Schema aus Abbildung \ref{fig:versuchsanordnung:schema} identisch.
@@ -27,7 +27,7 @@ besteht, ist dieses Kapitel etwas umfangreicher als \"ublich.
 
 \begin{figure}[h!t]
     \centering
-    \includegraphics[width=.67\textwidth]{images/versuchsanordnung2.jpeg}
+    \includegraphics[width=.85\textwidth]{images/versuchsanordnung2.jpeg}
     \caption{%
         Versuchsanordnung,   andere   Perspektive. Messleitung   Sichtbar   im
         Hintergrund.
@@ -199,7 +199,7 @@ noch nicht genau genug).
 
 \begin{figure}[h!t]
     \centering
-    \resizebox{.67\textwidth}{!}{\input{images/justierung.tex}}
+    \resizebox{.40\textwidth}{!}{\input{images/justierung.tex}}
     \caption{%
         Referenzpunkte f\"ur Kalibrierung (blau markiert)
     }
@@ -222,7 +222,7 @@ lag, und die Blende so weit als m\"oglich geschlossen.
 
 \begin{figure}[h!t]
     \centering
-    \includegraphics[width=.67\textwidth]{images/spiegel.jpeg}
+    \includegraphics[width=.55\textwidth]{images/spiegel.jpeg}
     \caption{%
         Die beiden Spiegel und der Strahlteiler. Die Spiegel k\"onnen vestellt
         werden, um die Verl\"aufe der Strahlen aufeinander abzustimmen.
@@ -233,7 +233,7 @@ lag, und die Blende so weit als m\"oglich geschlossen.
 
 \begin{figure}[h!t]
     \centering
-    \includegraphics[width=.67\textwidth]{images/linse.jpeg}
+    \includegraphics[width=.6\textwidth]{images/linse.jpeg}
     \caption{%
         Die  Linsen  $L_1$ (links,  gross)  und  $L_2$ (rechts,  im  schwarzen
         rechteckigen  Rahmen). Ebenfalls  sichtbar   sind  einige  Reflexionen
@@ -245,7 +245,7 @@ lag, und die Blende so weit als m\"oglich geschlossen.
 
 \begin{figure}[h!t]
     \centering
-    \resizebox{.67\textwidth}{!}{\input{images/blende.tex}}
+    \resizebox{.6\textwidth}{!}{\input{images/blende.tex}}
     \caption{%
         Linse  $L_2$, Blende  und Photomultiplier. Die  Blende kann  verstellt
         werden,  um  m\"oglichst  nur  das  vom Str\"omungsteilchen  gestreute
@@ -254,8 +254,8 @@ lag, und die Blende so weit als m\"oglich geschlossen.
     \label{fig:versuchsanordnung:blende}
 \end{figure}
 
-Die  Kreuzung  der   Laserstrahlen  in  der  Messleitung   kann  in  Abbildung
-\ref{fig:laserkreuzung} gesehen werden.
+%Die  Kreuzung  der   Laserstrahlen  in  der  Messleitung   kann  in  Abbildung
+%\ref{fig:laserkreuzung} gesehen werden.
 
 \begin{figure}[h!t]
     \centering
@@ -268,6 +268,8 @@ Die  Kreuzung  der   Laserstrahlen  in  der  Messleitung   kann  in  Abbildung
     \label{fig:laserkreuzung}
 \end{figure}
 
+
+\clearpage
 Nachdem die Apparatur justiert war, wurden vier Messungen durchgef\"uhrt:
 
 \begin{itemize}
@@ -292,23 +294,36 @@ das gefilterte Signal aus dem Bandpassfilter.
 Um  den  Bandpassfiter  korrekt  einstellen zu  k\"onnen,  musste  nat\"urlich
 bekannt sein, in  welcher Gr\"ossenordnung sich die  zu erwartenden Frequenzen
 ungef\"ahr befinden w\"urden.
-%TODO: Frequency calculations
 
 Das  Oszilloskop f\"uhrte  am  eingehenden  Zeitsignal eine  Fourier-Zerlegung
-durch (unterstes Signal in Abbildung
-% TODO: abbildung Oszi
-).  In  diesem  Signal  wurden  dann mittels  der  beiden  Cursor  eine  obere
-und  untere  Limite der  bei  einer  Einstellung (Position  des  Schnittpunkts
-der  Laserstrahlen  in  der  Messleitung,  Flussgeschwindigkeit)  auftretenden
-Frequenzen  abgelesen. Zur  Auswertung  wird  aus diesen  der  Mittelwert  mit
-Unsicherheit gebildet (siehe Abschnitt.
-%TODO Referenz
-auf Seite
-%TODO Referenz
-).
+durch  (unterstes   Signal  in  Abbildung  \ref{fig:oszi:display}   auf  Seite
+\pageref{fig:oszi:display}  ).  In  diesem  Signal  wurden  dann  mittels  der
+beiden  Cursor  eine  obere  und  untere  Limite  der  bei  einer  Einstellung
+(Position   des   Schnittpunkts   der  Laserstrahlen   in   der   Messleitung,
+Flussgeschwindigkeit) auftretenden Frequenzen  abgelesen. Zur Auswertung wurde
+dieses Intervall  dann auf eine Streuteilchengeschwindigkeit  mit Unsicherheit
+umgerechnet. Die  Methodik ist  in  Abschnitt  \ref{subsec:vUncert} auf  Seite
+\pageref{subsec:vUncert}  dargelegt,  die  damit  berechneten  Resultate  sind
+in   den   Tabellen  \ref{tab:rohrmitte},   (Seite   \pageref{tab:rohrmitte}),
+\ref{tab:laminar} (Seite \pageref{tab:laminar}) und \ref{tab:turbulent} (Seite
+\pageref{tab:turbulent})  aufgef\"uhrt. Ausgewertet wurde  mit Python-Scripts;
+diese sind in Anhang \ref{app:python} ab Seite \pageref{app:python} zu finden.
+
+
+\begin{figure}[h!t]
+    \centering
+    \includegraphics[width=.7\textwidth]{images/mess-signal.png}
+    \caption{%
+        Anzeige      des      Oszilloskops.      \textbf{C1:}      gefiltertes
+        Signal,     \textbf{C2:}    ungefiltertes     Signal    direkt     vom
+        Photomultiplier. Darunter   die   Fourier-Zerlegung  des   gefilterten
+        Signals. \emph{Quelle:} Versuchsanleitung
+    }
+    \label{fig:oszi:display}
+\end{figure}
 
 Bei  \"andernden  Einstellungen musste  jeweils  darauf  geachtet werden,  den
-Bandpass  entsprechend  anzupassen. Geht  dies   vergessen,  werden  zwar  die
+Bandpassfilter entsprechend  anzupassen. Geht dies vergessen, werden  zwar die
 Messresultate nicht  verf\"alscht, es  macht aber  das Erkennen  der gesuchten
 Streu-Ereignisse zunehmend  schwierig oder verhindert sie  vollkommen, je nach
 Frequenzbereich.
