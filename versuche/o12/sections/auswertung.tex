@@ -14,6 +14,17 @@ Die   erwarteten   Ver\"aufe   der  Str\"omungsprofile   sind   in   Abbildung
     \label{fig:laminarVsturbulent}
 \end{figure}
 
+\begin{align}
+    \label{eq:formularsForComparisonPlot}
+    v(r)_{\mathrm{laminar}}   &= v_{\mathrm{max, laminar}}   \cdot \left( 1 - \frac{r^2}{R^2} \right) \\
+    v(r)_{\mathrm{turbulent}} &= v_{\mathrm{max, turbulent}} \cdot \left( 1 - \frac{r}{R} \right) ^ \frac{1}{k}
+\end{align}
+\begin{conditions}
+    v_{\mathrm{max, laminar}}   & auf \num{1} normiert \\
+    v_{\mathrm{max, turbulent}} & auf \num{1} normiert \\
+    R                           & auf \num{1} normiert \\
+    k                           & gem\"ass Legende     \\
+\end{conditions}
 
 % ---------------------------------------------------------------------------- $
 \clearpage

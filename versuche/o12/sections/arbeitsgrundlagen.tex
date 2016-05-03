@@ -138,8 +138,8 @@ Intensit\"at gemessen. Diese ist als das Quadrat der Schwebung definiert:
     \begin{split}
         I(t) &= S^2(t) \\
              &= A^2           \cdot \left( \cos^2(\omega_1 \cdot t) + \cos^2(\omega_2 \cdot t) + 2 \cdot \cos(\omega_1 \cdot t) \cdot \cos(\omega_2 \cdot t) \right) \\
-             &= \frac{A^2}{2} \cdot \left( 1 + \cos(2\omega_1 \cdot t) + \cos(2\omega_2 \cdot t) + 4 \cdot \cos(\omega_1 \cdot t)\cos(\omega_2 \cdot t) \right) \\
-             &= \frac{A^2}{2} \cdot \left( 2 + \cos(2\omega_1 \cdot t) + \cos(2\omega_2 \cdot t) + 2 \cdot \cos\left((\omega_1 + \omega_2) \cdot t \right) + 2 \cdot \cos\left( (\omega_1 - \omega_2) \cdot t \right) \right)
+             &= \frac{A^2}{2} \cdot \Big( 1 + \cos(2\omega_1 \cdot t) + \cos(2\omega_2 \cdot t) + 4 \cdot \cos(\omega_1 \cdot t)\cos(\omega_2 \cdot t) \Big) \\
+             &= \frac{A^2}{2} \cdot \Big( 2 + \cos(2\omega_1 \cdot t) + \cos(2\omega_2 \cdot t) + 2 \cdot \cos\left((\omega_1 + \omega_2) \cdot t \right) + 2 \cdot \cos\left( (\omega_1 - \omega_2) \cdot t \right) \Big)
     \end{split}
 \end{equation}
 
@@ -462,7 +462,7 @@ nach dem gleichen Prinzip wie bei laminarer Str\"omung:
 
 \begin{align}
     \label{eq:turbulent:Q}
-    v(r) &= v_{max} \cdot \left( 1 - \frac{r}{R} \right) ^ \frac{1}{k}
+    v(r) &= v_{\mathrm{max}} \cdot \left( 1 - \frac{r}{R} \right) ^ \frac{1}{k}
     \\
     \dot{V} &= \int_0^R \! v(r) \cdot 2 \cdot \pi \cdot r \, \mathrm{d}r = \frac{2 \cdot \pi \cdot v_{\mathrm{max}} \cdot R^2 \cdot k^2}{(k + 1) \cdot (2k + 1)}
     \\
