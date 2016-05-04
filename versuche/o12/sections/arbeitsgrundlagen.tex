@@ -56,14 +56,14 @@ gestreuten   Strahls. Die   Konfiguration   ist   schematisch   in   Abbildung
 
 Da  bei  technischen  Geschwindigkeiten das  Verh\"altnis  $\frac{v}{c}$  sehr
 klein   ist,  ergeben   sich  unter   solchen  Umst\"anden   lediglich  minime
-Unterschide  in   den  Frequenzen  $f_4$,  $f_1$   und  $f_2$. Eine  pr\"azise
-Messung  der  Frequenzunterschiede  ist  somit enorm  schwierig,  weshalb  man
-sich  eines Zwei-Stral-Verfahrens  bedient. Da die  beiden Teilstrahlen  dabei
-in  unterschiedlichen  Winkeln  $\vartheta_1$  (vgl. Formel  \ref{eq:doppler})
-auf   das   streuende   Teilchen  treffen,   erfahren   sie   unterschiedliche
-Doppler-Verschiebungen ihrer Frequenzen.
+Unterschide  in den  Frequenzen $f_1$  und $f_2$. Eine  pr\"azise Messung  der
+Frequenzunterschiede  ist  somit  enorm  schwierig,  weshalb  man  sich  eines
+Zwei-Stral-Verfahrens  bedient. Die  beiden   Teilstrahlen  treffen  dabei  in
+unterschiedlichen Winkeln $\vartheta_1$ (vgl. Formel \ref{eq:doppler}) auf das
+streuende Teilchen und  erfahren unterschiedliche Doppler-Verschiebungen ihrer
+Frequenzen.
 
-\"Uberlagert man  nun die beiden  Teilstrahlen in einem Detektor,  ergibt sich
+\"Uberlagert  man  die beiden  Teilstrahlen  in  einem Detektor,  ergibt  sich
 eine  Schwebung, deren  Frequenz bedeutend  tiefer  als $f_0$  ist, und  somit
 verh\"altnism\"assig gut detektiert werden kann.
 
@@ -80,10 +80,11 @@ Eine     h\"aufig     verwendete     Konfiguration    ist     in     Abbildung
 \end{figure}
 
 Ein Strahlteiler teilt  den Laserstrahl auf zwei Strahlen auf  und ein Spiegel
-sorgt daf\"ur, dass zwei parallele  Strahlen entstehen, die anschliessen durch
-eine Linse $L_1$ mit Brennweite $f_1$ wieder zusammengef\"uhrt werden. Fliesst
-ein Streuteilchen durch diesen Schnittpunkt, ergeben sich f\"ur die beiden Teilstrahlen
-zwei unterschiedliche Frequenzen aufgrund des Dopplereffekts:
+sorgt  daf\"ur,  dass zwei  parallele  Strahlen  entstehen, die  anschliessend
+durch  eine  Linse $L_1$  mit  Brennweite  $d_{f_1}$ wieder  zusammengef\"uhrt
+werden. Fliesst  ein Streuteilchen  durch  diesen  Schnittpunkt, ergeben  sich
+f\"ur die beiden Teilstrahlen zwei unterschiedliche Frequenzen $f_1$ und $f_2$
+aufgrund des Dopplereffekts:
 
 \begin{align}
     \label{eq:splitFreqs1}
@@ -114,8 +115,12 @@ zwei unterschiedliche Frequenzen aufgrund des Dopplereffekts:
 
 Die beiden  Wellenz\"uge werden  anschliessend in einem  einzelnen Empf\"anger
 zusammengef\"uhrt. Die durch diese \"Uberlagerung erzeugte Schwebung errechnet
-sich  nach  einigen  trigonometrischen  Umformungen zu  (beachte,  dass  beide
-Signale die gleiche Amplitude haben, was die Sache etwas vereinfacht):
+sich  nach  einigen  trigonometrischen  Umformungen\footnotemark[1] zu
+
+\footnotetext[1]{%
+    Man  beachte, dass  beide Signale  die  gleiche Amplitude  haben, was  die
+    Umformung etwas vereinfacht.
+}
 
 \begin{equation}
     \label{eq:schwebung}
@@ -131,7 +136,8 @@ Signale die gleiche Amplitude haben, was die Sache etwas vereinfacht):
 \end{equation}
 
 Nun wird  in einem Detektor  jedoch nicht  die Schwebung selbst,  sondern ihre
-Intensit\"at gemessen. Diese ist als das Quadrat der Schwebung definiert:
+Intensit\"at gemessen. Intensit\"aten sind quadratisch (k\"onnen nicht negativ
+sein), in diesem Falle also das Quadrat der Schwebung:
 
 \begin{equation}
     \label{eq:intensity}
@@ -149,13 +155,16 @@ des   Gesamtsignals   sind   in  Abbildung   \ref{fig:schwebung}   auf   Seite
 
 \begin{figure}[h!t]
     \centering
-    \resizebox{0.6\textwidth}{!}{\input{images/heterodyning.pgf}}
+    \resizebox{0.75\textwidth}{!}{\input{images/heterodyning.pgf}}
     \caption{%
-        Konstruktion  einer Schwebung  aus einzelnen  Frequenzen. Zuoberst das
-        gesamte Signal, dann die drei h\"oherfrequenten Anteile und am Schluss
+        Konstruktion   einer    Schwebung   f\"ur   ein   Signal    der   Form
+        der   Intensit\"at  (quadradische   \"Uberlagerung  von   harmonischen
+        Schwinungen)   aus   einzelnen    Frequenzen. Zuoberst   das   gesamte
+        Signal,  dann  die  drei  h\"oherfrequenten  Anteile  und  am  Schluss
         das  Signal,  welches  vom  Detektor  gesehen  werden  kann. Abbildung
         \ref{fig:schwebung2}  auf  Seite \pageref{fig:schwebung2}  zeigt  noch
-        eine \"Uberlagerung des Gesamtsignals mit der langsamen Schwingung.
+        eine \"Uberlagerung  des Gesamtsignals  mit der  langsamen Schwingung,
+        wie sie im Detektor registriert wird.
     }
     \label{fig:schwebung}
 \end{figure}
@@ -166,8 +175,9 @@ und  $\omega_1  +   \omega_2$  nicht  detektieren,  wohl   aber  die  langsame
 Schwebungsfrequenz $\omega_1 - \omega_2$. Mathematisch  kann man dies als eine
 Mittelung \"uber  eine Zeit in  der Gr\"ossenordnung von  $\frac{1}{\abs{f_1 -
 f_2}}$  betrachten.   In  diesem  Falle werden  die  schnelleren  Schwingungen
-ausgemittelt  und verschwinden,  lediglich der  langsamste Anteil  bleibt noch
-\"ubrig. Dies ergibt f\"ur das im Detektor ausgewertete Signal:
+ausgemittelt und verschwinden, lediglich der langsamste Anteil (unterste Kurve
+in Abbildung  \ref{fig:schwebung}) bleibt noch \"ubrig. Dies  ergibt f\"ur das
+im Detektor ausgewertete Signal:
 
 \begin{equation}
     \label{eq:schwebungResult}
@@ -176,10 +186,10 @@ ausgemittelt  und verschwinden,  lediglich der  langsamste Anteil  bleibt noch
 
 \begin{figure}[h!t]
     \centering
-    \resizebox{0.9\textwidth}{!}{\input{images/heterodyning2.pgf}}
+    \resizebox{0.95\textwidth}{!}{\input{images/heterodyning2.pgf}}
     \caption{%
         Erg\"anzung  zu  Abbildung  \ref{fig:schwebung}. Gesamtschwingung  mit
-        schnellen Anteilen in blau und  dem im Detektor ausgewerteten langsame
+        schnellen Anteilen in blau und dem im Detektor ausgewerteten langsamen
         Anteil in rot
     }
     \label{fig:schwebung2}
@@ -269,10 +279,10 @@ die \emph{Reynoldszahl} herangezogen, die wie folgt definiert ist:
 
 
 \begin{conditions}
-    \rho            & Dichte des Fluids \\
-    v_{\mathrm{m}}  & mittlere Str\"omungsgeschwindigkeit \\
-    L               & eine typische Abmessung \\
-    \eta            & dynamische Viskosit\"at des Fluids (Materialkonstante) \\
+    \rho            & Dichte des Fluids                                              \\
+    v_{\mathrm{m}}  & mittlere Str\"omungsgeschwindigkeit                            \\
+    L               & eine typische Abmessung (abh\"angig von der Versuchsanordnung) \\
+    \eta            & dynamische Viskosit\"at des Fluids (Materialkonstante)         \\
 \end{conditions}
 
 Die Reynoldszahl  ist eine dimensionslose \"Ahnlichkeitszahl,  die dazu dient,
@@ -302,9 +312,9 @@ abh\"angt; f\"ur eine Trompete wird $\mathit{Re}_{krit}$ anders sein.
 % ---------------------------------------------------------------------------- %
 
 Aufgrund der Reibung innerhalb eines Fluids ist die Str\"omungsgeschwindigkeit
-innerhalb eines  Fluids meist \"ortlich variabel. Normalerweise  wird dies mit
-einem Str\"omungsfeld  $\vec{v}(x,y,z)(t)$ beschrieben. Im  station\"aren Fall
-f\"allt die Zeitabh\"angigkeit heraus und man erh\"alt $\vec{v}(x,y,z)$.
+in einem  Fluid meist  \"ortlich variabel. Normalerweise  wird dies  mit einem
+Str\"omungsfeld $\vec{v}(x,y,z)(t)$ beschrieben. Im station\"aren Fall f\"allt
+die Zeitabh\"angigkeit heraus und man erh\"alt $\vec{v}(x,y,z)$.
 
 In  diesem  Versuch  werden lediglich  rotationssymmetrische  Str\"omungen  in
 zylindrischen  Rohrleitungen   betrachtet,  womit  sich   das  Str\"omungsfeld
@@ -337,8 +347,8 @@ Str\"omungsprofil, abgebildet in Abbildung \ref{fig:hagenPoiseuille}.
 \end{figure}
 
 Will man den Volumenstrom bestimmen, ist dazu das Str\"omungsprofil \"uber den
-Querschnitt zu  integrieren (aufgrund der radialen  Symmetrie vereinfacht sich
-das Integral zu einer Integration \"uber den Radius):
+Querschnitt zu  integrieren. Aufgrund der radialen  Symmetrie vereinfacht sich
+das Integral zu einer Integration \"uber den Radius:
 
 \begin{equation}
     \label{eq:volumenstrom:laminar}
@@ -449,10 +459,10 @@ Anwendung:
     v_{\mathrm{max}} & maximale Str\"omungsgeschwindigkeit \\
     r                & radiale Position                    \\
     R                & Radius Leitung                      \\
-    k                & Modellierungsparameter; abh\"angig von Reynoldszahl, experimentell zu bestimmen\footnotemark[1] \\
+    k                & Modellierungsparameter; abh\"angig von Reynoldszahl, experimentell zu bestimmen\footnotemark[2] \\
 \end{conditions}
 
-\footnotetext[1]{%
+\footnotetext[2]{%
     Typische Werte f\"ur $k$ sind: $k = 6$ : $\mathit{Re} \approx 4000$, $k = 7$ : $\mathit{Re} \approx 10^5$,$k = 9$ : $\mathit{Re} \approx 10^6$
 }
 

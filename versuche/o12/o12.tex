@@ -20,6 +20,7 @@
 \pagestyle{empty}
 {
     \renewcommand{\thispagestyle}[1]{}
+    \newgeometry{bottom=20mm}
 
     % ************************************************************************ %
     %\section*{Grundidee}
@@ -31,7 +32,7 @@
     \clearpage
     \tableofcontents
     %\vspace{5mm}
-    \subsection*{Versionsgeschichte}
+    \subsubsection*{Versionsgeschichte}
     \small{
         \begin{itemize}
             \item[]
@@ -41,9 +42,12 @@
             \item[]
                 \emph{02.05.2016:} \texttt{Version 0.3}: Fix Auswertung, Fehlerrechnung, Diskussion
             \item[]
-                \emph{05.05.2016:} \texttt{Version 0.4}: Formatierung, Erg\"anzung bei Messung Rohrmitte
+                \emph{03.05.2016:} \texttt{Version 0.4}: Formatierung, Erg\"anzung bei Messung Rohrmitte
+            \item[]
+                \emph{04.05.2016:} \texttt{Version 1.0}
         \end{itemize}
     }
+    \restoregeometry
 }
 
 \clearpage

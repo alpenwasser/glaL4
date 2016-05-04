@@ -75,7 +75,7 @@ was sich zusammenf\"uhren l\"asst auf einen Schnittwinkel von:
 
 \begin{equation}
     \label{eq:varphi_result}
-    \varphi = \SI{11.42 \pm 0.19}{\degree} \cdot 2 = \SI{22.8 \pm 0.4}{\degree}
+    \underline{\underline{\varphi = \SI{11.42 \pm 0.19}{\degree} \cdot 2 = \SI{22.8 \pm 0.4}{\degree}}}
 \end{equation}
 
 Der Vorgang ist ist schematisch in Abbildung \ref{fig:varphi} dargestellt.
@@ -84,11 +84,8 @@ Der Vorgang ist ist schematisch in Abbildung \ref{fig:varphi} dargestellt.
     \centering
     \resizebox{.67\textwidth}{!}{\input{images/phi.tex}}
     \captionof{figure}{%
-        Bestimmung des Schnittwinkels der  Laserstrahlen aus der Geometrie der
-        Versuchsanordnung.  \emph{Beachte:} Da  diese Abbildung  prim\"ar  der
-        Illustration  der Bestimmung  von  $\varphi$ und  nicht der  akkuraten
-        Darstellung der Linse  dient, ist hier nicht das  gleiche Symbol f\"ur
-        die Linse wie in der Versuchsanleitung benutzt worden.%
+        Schematische  Illustration  der   Bestimmung  des  Schnittwinkels  der
+        Laserstrahlen aus der Geometrie der Versuchsanordnung.
     }
     \label{fig:varphi}
 \end{minipage}
@@ -102,11 +99,12 @@ Der Vorgang ist ist schematisch in Abbildung \ref{fig:varphi} dargestellt.
 % ---------------------------------------------------------------------------- $
 
 
-Gemessen  wurden  zwar  Frequenzen,  es  sollen  in  den  Regressionen  jedoch
-direkt die zugeh\"origen Geschwindigkeiten  angegeben werden. Da diese Angaben
-f\"ur  den  Rest  dieses  Kapitels  ben\"otigt  werden,  werden  zur  besseren
-\"Ubersichtlichkeit  die  n\"otigen   Informationen  zur  Fehlerrechnung  hier
-aufgef\"uhrt anstatt in einem separaten Kapitel im Nachhinein.
+Gemessen wurden  zwar Frequenzen,  es sollen  in den  Plots in  diesem Kapitel
+jedoch  direkt   die  zugeh\"origen  Geschwindigkeiten   angegeben  werden. Um
+unn\"otiges  Hin-  und  Herbl\"attern  zu vermeiden,  wird  die  Methodik  zur
+Bestimmung  der  Str\"omungsgeschwindigkeit  und ihrer  Unsicherheit  aus  dem
+gemessenen  Frequenzintervall  daher  hier  dokumentiert  anstatt  im  Kapitel
+\emph{Fehlerrechnung}.
 
 Die Flussgeschwindigkeiten k\"onnen mit der folgenden Formel ermittelt werden:
 
@@ -133,10 +131,10 @@ Aufgel\"ost nach $v$ ergibt dies:
     \varphi         & Kreuzungswinkel der Laserstrahlen (\SI{22.8 \pm 0.4}{\degree} gem\"ass vorigem Abschnitt) \\
 \end{conditions}
 
-Es  sind  hier   sowohl  Unsicherheiten  im  Winkel  $\varphi$   wie  auch  in
-der  gemessenen  Frequenz  vorhanden. Somit   ist  f\"ur  die  Bestimmung  der
-Unsicherheit  der  Teilchengeschwindigkeit   die  Verwendung  des  Gauss'schen
-Fehlerfortpflanzungsgesetzes erforderlich. Zur Erinnerung:
+Es  sind hier  sowohl  Unsicherheiten  im Winkel  $\varphi$  wie  auch in  der
+gemessenen Frequenz $\Delta\,f$ vorhanden. Zur  Bestimmung der Unsicherheit in
+der  Teilchengeschwindigkeit  wird das  Gauss'sche  Fehlerfortpflanzungsgesetz
+herangezogen.  Zur Erinnerung:
 
 \begin{equation}
     \label{eq:Gauss}
@@ -166,7 +164,7 @@ Mit:
     \frac{\partial v}{\partial \varphi} &= \frac{-f \cdot \lambda \cdot \cos\left(\frac{\varphi}{2}\right)}{4 \cdot \sin^2\left(\frac{\varphi}{2}\right)}
 \end{align}
 
-Ergibt sich somit:
+ergibt sich somit f\"ur den Fehler der Teilchengeschwindigkeit:
 \begin{equation}
     \label{eq:gauss:teilchen:eingesetzt}
     s_{\overline{v}} = \sqrt{ \left( \frac{\lambda}                                                    {2 \cdot \sin  \left( \frac{\varphi}{2} \right)} \biggr\rvert_{\overline{v}}       \cdot s_{\overline{f}}       \right)^2
@@ -194,16 +192,16 @@ sind in Tabelle \ref{tab:rohrmitte} zu finden.
 
 \begin{table}[h!t]
     \centering
-    \caption{Messwerte f\"ur verschiedene Durchflussraten in Rohrmitte}
+    \caption{Messwerte f\"ur verschiedene Durchflussraten in Rohrmitte.}
     \label{tab:rohrmitte}
-    \begin{tabular}{SSSSSS}
+    \begin{tabular}{>{\color{magenta}}S>{\color{lightgray}}S>{\color{lightgray}}S>{\color{lightgray}}S>{\color{lightgray}}S>{\color{magenta}}S}
         \toprule
-        {$\dot{V}$ (\si{\liter\per\minute})}
-        & {$f_{low}$ (\si{\kilo\hertz})}
-        & {$f_{high}$ (\si{\kilo\hertz})}
-        & {$\overline{f}$ (\si{\kilo\hertz})}
-        & {$s_{\overline{f}}$ (\si{\kilo\hertz})}
-        & {$v$ (\si{\centi\meter\per\second})}
+        \textcolor{black}{{$\dot{V}$ (\si{\liter\per\minute})}}
+        & \textcolor{black}{{$f_{low}$ (\si{\kilo\hertz})}}
+        & \textcolor{black}{{$f_{high}$ (\si{\kilo\hertz})}}
+        & \textcolor{black}{{$\overline{f}$ (\si{\kilo\hertz})}}
+        & \textcolor{black}{{$s_{\overline{f}}$ (\si{\kilo\hertz})}}
+        & \textcolor{black}{{$v$ (\si{\centi\meter\per\second})}}
         \\
 
         \midrule
@@ -332,8 +330,7 @@ sind in Tabelle \ref{tab:rohrmitte} zu finden.
     \end{tabular}
 \end{table}
 
-Die Werte aus  der letzten Spalte wurden anschliessend  in QtiPlot eingegeben,
-zusammen mit den zugeh\"origen Durchflusswerten.
+Die in magenta notierten Werte wurden anschliessend in QtiPlot eingegeben.
 
 Wie      im     Abschnitt      \ref{subsubsec:laminarVsTurb}     ab      Seite
 \pageref{subsubsec:laminarVsTurb} erw\"ahnt, liegt  die kritische Reynoldszahl
@@ -349,9 +346,9 @@ nach der mittleren Str\"omungsgeschwindigkeit auf, und erh\"alt:
 
 \begin{conditions}
     \mathit{Re_{\mathrm{krit}}} & 2000 \\
-    \eta                        & \SI{1}{\milli\pascal\second} \\
-    \rho                        & \SI{1000}{\kilo\gram\per\cubic\meter} \\
-    R                           & \SI{20}{\milli\meter} \\
+    \eta                        & \SI{1}{\milli\pascal\second}  (\emph{Quelle:} Kuchling, Tabelle 6) \\
+    \rho                        & \SI{1000}{\kilo\gram\per\cubic\meter} (Dichte von Wasser)          \\
+    R                           & \SI{20}{\milli\meter}                                              \\
 \end{conditions}
 
 Da  $v_{\mathrm{m}} =  \frac{\dot{V}}{A}$,  kann daraus  nun die  zugeh\"orige
@@ -423,7 +420,7 @@ als Regressionsparameter. Als Resultat lieferte QtiPlot:
 \end{samepage}
 
 Da sich  $a$ mit zunehmendem  Durchfluss eigentlich \"andert  (siehe Abbildung
-\ref{fig:einlauf}, Seite \pageref{fig:einlauf}\footnotemark[2]), sollte dieses
+\ref{fig:einlauf}, Seite \pageref{fig:einlauf}\footnotemark[4]), sollte dieses
 Regressionsresultat nat\"urlich nicht einfach in eine Gleichung eingesetzt und
 verwendet werden. Die  Regression wurde  aber nicht durchgef\"uhrt,  um diesen
 Parameter  m\"oglichst genau  zu  bestimmen, sondern  um zu  veranschaulichen,
@@ -431,19 +428,19 @@ dass  er  doch  recht  betr\"achtlich vom  theoretischen  Wert  eines  perfekt
 parabolischen Profils abweichen kann, was meines Erachtens gelungen ist.
 
 Der   Wert    f\"ur   $k$    ist   \"uber    dem   theoretischen    Wert   von
-\num{6}\footnotemark[3]. Dies  deckt sich  jedoch zumindest  einigermassen mit
+\num{6}\footnotemark[5]. Dies  deckt sich  jedoch zumindest  einigermassen mit
 den  Ergebnissen der  Regression beim  turbulenten Str\"omungsprofil,  wie wir
 sp\"ater sehen werden.
 
-\footnotetext[2]{%
+\footnotetext[4]{%
     Der  in der  Regression bestimmte  Parameter $a$  taucht in  der Abbildung
     nicht direkt  auf, ist jedoch  an das Verh\"altnis  von $v_{\mathrm{max}}$
     und  $v_{\mathrm{m}}$  gebunden, weshalb  die  Abbildung  und der  in  der
     Regression bestimte Parameter trotzdem eng zusammenh\"angen.
 }
 
-\footnotetext[3]{%
-    Wie in  den Arbeitsgrundlagen angemerkt,  variiert $k$ bei  \"Anderung der
+\footnotetext[5]{%
+    Wie in den Arbeitsgrundlagen ersichtlich,  variiert $k$ bei \"Anderung der
     Reynoldszahl im  Bereich von  mehreren Zehnerpotenzen lediglich  um einige
     Inkremente, daher  wird $k$  approximativ \"uber den  betrachteten Bereich
     zur Veranschaulichung in diesem Fall als konstant betrachtet.
@@ -463,9 +460,9 @@ Python-Script f\"ur die Resultate aus  Tabelle \ref{tab:laminar} ist in Anhang
 
 \begin{table}[h!t]
     \centering
-    \caption{Messwerte f\"ur Str\"omungsprofil im laminaren Fall ($\dot{V} = \SI{0.56}{\liter\per\minute}$)}
+    \caption{Messwerte f\"ur Str\"omungsprofil im laminaren Fall ($\dot{V} = \SI{0.56}{\liter\per\minute}$). $r = \SI{0}{\milli\meter}$ ist die Mitte der Messleitung.}
     \label{tab:laminar}
-    \begin{tabular}{SSSSSS}
+    \begin{tabular}{>{\color{magenta}}S>{\color{lightgray}}S>{\color{lightgray}}S>{\color{lightgray}}S>{\color{lightgray}}S>{\color{magenta}}S}
         \toprule
         {Position (\si{\milli\meter})}
         & {$f_{low}$ (\si{\kilo\hertz})}
@@ -625,10 +622,27 @@ Python-Script f\"ur die Resultate aus  Tabelle \ref{tab:laminar} ist in Anhang
     \end{tabular}
 \end{table}
 
+Auch  hier  wurden  die  in  magenta notierten  Werte  in  QtiPlot  als  Daten
+benutzt. Wie man an  den Werten f\"ur die Position der  Messung erkennen kann,
+wurde  nicht symmetrisch  \"uber  den gesamten  Querschnitt gemessen. Bei  der
+Versuchsdurchf\"uhrung wurde der Kreuzungspunkt der Laserstrahlen etwas falsch
+eingesch\"atzt.
+
+Die  Bestimmung  der Positionswerte  aus  den  Messprotokollen ist  in  Anhang
+\ref{app:messposition}  auf Seite  \pageref{app:messposition} geschildert. Die
+Messprotokolle  selbst  sind  in   Anhang  \ref{app:messprotokolle}  ab  Seite
+\pageref{app:messprotokolle} abgelegt.
+
 \clearpage
 \begin{samepage}
-Als Formel  zur Regression  wurde Gleichung \ref{eq:laminarprofile}  von Seite
-\pageref{eq:laminarprofile} benutzt. Fit-Variable war $v_{\mathrm{max}}$.
+Als   Formel   zur    Regression   wurde   Gleichung   \ref{eq:laminarprofile}
+von   Seite   \pageref{eq:laminarprofile}  benutzt. Regressionsparameter   war
+$v_{\mathrm{max}}$.
+
+\begin{equation}
+    \label{eq:laminarprofile:auswertung}
+    v(r) = v_{\mathrm{max}} \cdot \left( 1 - \frac{r^2}{R^2} \right)
+\end{equation}
 
 \begin{figure}[h!t]
     \centering
@@ -672,9 +686,9 @@ Messungen gemacht als f\"ur das laminare.
 
 \begin{table}[h!t]
     \centering
-    \caption{Messwerte f\"ur Str\"omungsprofil im turbulenten Fall ($\dot{V} = \SI{7}{\liter\per\minute}$)}
+    \caption{Messwerte f\"ur Str\"omungsprofil im turbulenten Fall ($\dot{V} = \SI{7}{\liter\per\minute}$). $r = \SI{0}{\milli\meter}$ ist die Mitte der Messleitung.}
     \label{tab:turbulent}
-    \begin{tabular}{SSSSSS}
+    \begin{tabular}{>{\color{magenta}}S>{\color{lightgray}}S>{\color{lightgray}}S>{\color{lightgray}}S>{\color{lightgray}}S>{\color{magenta}}S}
         \toprule
         {Position (\si{\milli\meter})}
         & {$f_{low}$ (\si{\kilo\hertz})}
@@ -802,11 +816,21 @@ Messungen gemacht als f\"ur das laminare.
     \end{tabular}
 \end{table}
 
-Zur Regression and diese Daten wurde Gleichung \ref{eq:potenzgesetz} von Seite
+Erneut waren  die in magenta  notierten Werte die Eingaben  f\"ur QtiPlot. Wie
+schon beim laminaren Str\"omungsprofil wurde  auch hier nicht ganz symmetrisch
+und nicht  ganz bis an die  Wand gemessen aufgrund der  Fehleinsch\"atzung des
+Kreuzungspunktes der Laserstrahlen.
+
+Die  Bestimmung   der  Positionswerte  aus  den   Messprotokollen  ist  analog
+zum  laminaren  Fall  und  ist  in  Anhang  \ref{app:messposition}  auf  Seite
+\pageref{app:messposition} zu finden.
+
+Zur Regression an diese Daten  wurde Gleichung \ref{eq:potenzgesetz} von Seite
 \pageref{eq:potenzgesetz} herangezogen, mit einer kleinen Modifikation. Da die
 Funktion in  der gegebenen Form ungerade  ist und somit f\"ur  negative Radien
-nicht das gew\"unschte Ergebnis liefert,  wurde zur Regression noch ein Betrag
-eingebaut:
+(zur Erinnerung: $r = 0$ bedeutet, dass der Messpunkt auf der L\"angsachse der
+Messleitung  liegt).  nicht  das  gew\"unschte  Ergebnis  liefert,  wurde  zur
+Regression noch ein Betrag eingebaut:
 
 \begin{equation}
     \label{eq:potenzgesetz:abs}
@@ -818,7 +842,10 @@ eingebaut:
 \begin{figure}[h!t]
     \centering
     \includegraphics[width=\textwidth]{images/profil-turbulent.pdf}
-    \caption{Gewichtete Regression f\"ur das Str\"omungsprofil im turbulenten Fall.}
+    \caption{%
+        Gewichtete Regression f\"ur das  Str\"omungsprofil im turbulenten Fall
+        gem\"ass Gleichung \ref{eq:potenzgesetz:abs}.
+    }
     \label{fig:profile:turb}
 \end{figure}
 

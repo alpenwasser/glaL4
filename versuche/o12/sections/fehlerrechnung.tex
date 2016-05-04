@@ -6,7 +6,7 @@ von  Seite  \pageref{eq:volumenstrom:laminar}   (laminarer  Fall)  und  Formel
 
 Dazu werden  mittels dieser Formeln die  zu den Resultaten aus  der Regression
 geh\"orenden Volumenstr\"ome berechnet und diese anschliessend mit den Angaben
-auf dem Durchflussmesser verglichen.
+auf dem Durchflusssensor verglichen.
 
 Zur Rekapitulation nochmals die mittels Regression bestimmten Werte:
 
@@ -26,15 +26,25 @@ Zur Rekapitulation nochmals die mittels Regression bestimmten Werte:
 \label{subsec:error:laminar}
 % ---------------------------------------------------------------------------- %
 
-Wie  in  den  Arbeitsgrundlagen  bei  Abbildung  \ref{fig:einlauf}  auf  Seite
-\pageref{fig:einlauf}  erw\"ahnt,  ist  die hier  benutzte  Messleitung  nicht
-wirklich  lang   genug,  damit   sich  ein  sauberes,   perfekt  parabolisches
-Str\"omungsprofil  im   laminaren  Fall  ausbilden  kann. Aus   der  Abbildung
-kann   abgelesen  werden,   dass   f\"ur  den   Fall  einer   \SI{0.9}{\meter}
-langen  Messleitung das  Ver\"altnis $\frac{v_{\mathrm{max}}}{v_{\mathrm{m}}}$
-ungef\"ahr \num{1.95}  anstatt \num{2} ist. Somit modifizieren  wir die Formel
+Wie   in   den   Arbeitsgrundlagen   bei   Abbildung   \ref{fig:einlauf}   auf
+Seite    \pageref{fig:einlauf}    erw\"ahnt,    ist    die    hier    benutzte
+Messleitung   nicht   wirklich   lang   genug,  damit   sich   ein   sauberes,
+perfekt   parabolisches   Str\"omungsprofil   im  laminaren   Fall   ausbilden
+kann. Aus    der    Abbildung    kann    abgelesen    werden,    dass    f\"ur
+den   Fall    einer   \SI{0.9}{\meter}    langen   Messleitung\footnotemark[6]
+das    Verh\"altnis    $\frac{v_{\mathrm{max}}}{v_{\mathrm{m}}}$    ungef\"ahr
+\num{1.95}    anstatt    \num{2}    ist   (bei    einem    Volumenstrom    von
+ca. \SI{0.5}{\liter\per\minute}). Somit    modifizieren    wir   die    Formel
 \ref{eq:volumenstrom:laminar}  leicht, und  setzen  in  den Nenner  \num{1.95}
-statt \num{2}, was folgende Formel ergibt:
+statt \num{2}, was folgende Gleichung ergibt:
+
+\footnotetext[6]{%
+    Die  Einlaufl\"ange  beim  Versuch  war  eigentlich  \SI{0.8}{\meter}  vom
+    Rohranfang bis zum Kreuzungspunkt  der Laserstrahlen (\SI{1.0}{\meter} bis
+    zum Rohrende),  aber die  zur Verf\"ugung stehenden  Simulationsdaten sind
+    nun  einmal f\"ur  \SI{0.9}{\meter} durchgef\"uhrt  worden und  sollen als
+    hinreichend genau f\"ur unsere Zwecke betrachtet werden.
+}
 
 \begin{equation}
     \label{eq:volumenstrom:laminar:rekap}
@@ -47,12 +57,13 @@ statt \num{2}, was folgende Formel ergibt:
 \end{conditions}
 
 Zur   Bestimmung  der   zugeh\"origen  Unsicherheiten   wird  das   Gauss'sche
-Fehlerfortpflanzungsgesetz  ben\"otigt. Die  allgemeine   Formel  ist  bereits
-in  Gleichung \ref{eq:Gauss}  auf  Seite \pageref{eq:Gauss}  aufgef\"uhrt. Sie
-wird  nun angewandt  auf die  Formeln \ref{eq:volumenstrom:laminar:rekap}  und
-\ref{eq:turbulent:Q:rekap}.
+Fehlerfortpflanzungsgesetz  ben\"otigt. Die allgemeine  Formel ist  bereits in
+Gleichung \ref{eq:Gauss}  auf Seite \pageref{eq:Gauss}  aufgef\"uhrt. Sie wird
+im  Folgenden angewandt  auf  die Formeln  \ref{eq:volumenstrom:laminar:rekap}
+(laminare Str\"omung) und \ref{eq:turbulent:Q:rekap} (turbulente Str\"omung).
 
-Dies ergibt f\"ur den Fehler im laminaren Fall:
+\clearpage
+Dies ergibt f\"ur den Fehler im laminaren Fall
 
 \begin{equation}
     \label{eq:errorLaminar}
@@ -86,17 +97,17 @@ Dies ergibt f\"ur den Fehler im laminaren Fall:
 \end{equation}
 
 \begin{conditions}
-    a                & \num{0.26298}                                                         \\
-    b                & \num{1.05194}                                                         \\
-    \overline{R}     & \SI{20}{\milli\meter}, Radius Messleitung                             \\
-    s_{\overline{v}} & \SI{0.018346}{\centi\meter\per\second}, Fehler von $v_{\mathrm{max}}$ \\
-    s_{\overline{R}} & \SI{0.25}{\milli\meter} (\emph{Quelle:} Versuchsanleitung)            \\
-    v_{\mathrm{max}} & \SI{1.402}{\centi\meter\per\second}                                   \\
+    a                & \num{0.26298}                                                                         \\
+    b                & \num{1.05194}                                                                         \\
+    \overline{R}     & \SI{20}{\milli\meter}, Radius Messleitung                                             \\
+    s_{\overline{v}} & \SI{0.018346}{\centi\meter\per\second}, Fehler von $v_{\mathrm{max}}$, aus Regression \\
+    s_{\overline{R}} & \SI{0.25}{\milli\meter}, Unsicherheit Durchmesser Messleitung                         \\
+    v_{\mathrm{max}} & \SI{1.402}{\centi\meter\per\second}, aus Regression                                   \\
 \end{conditions}
 
-Die Koeffizienten  $a$ und  $b$ ergeben  sich daraus,  dass im  Nenner \num{2}
-durch \num{1.95} ersetzt wurde. Bei \num{2} erg\"abe sich eine ``h\"ubschere''
-Formel.
+Die  Koeffizienten  $a$ und  $b$  ergeben  sich  daraus,  dass im  Nenner  von
+Gleichung \ref{eq:volumenstrom:laminar:rekap} \num{2} durch \num{1.95} ersetzt
+wurde. Bei \num{2} erg\"abe sich ein algebraisch ``h\"ubscheres'' Ergebnis.
 
 Wie auch  schon in  vorherigen Kapiteln wurde  f\"ur diese  Berechnungen SymPy
 benutzt, das  zugeh\"orige Script ist in  Anhang \ref{app:python:errorLaminar}
@@ -106,7 +117,7 @@ Zusammengefasst also:
 
 \begin{equation}
     \label{eq:error:laminar:final}
-    \dot{V}_{\mathrm{laminar}} = \SI{0.542 \pm 0.0153}{\liter\per\minute}
+    \underline{\underline{\dot{V}_{\mathrm{laminar}} = \SI{0.542 \pm 0.0153}{\liter\per\minute}}}
 \end{equation}
 
 % ---------------------------------------------------------------------------- %
@@ -148,7 +159,10 @@ Die   Anwendung   des   Gauss'schen  Fehlerfortpflanzungsgesetzes   ist   hier
 ziemlich   umst\"andlich. Es  muss   nach  der   Geschwindigket,  dem   Radius
 und   $k$   abgeleitet   werden. Es   wurde   auch   hier   ein   SymPy-Script
 benutzt,  zu  finden  in   Anhang  \ref{app:python:errorTurbulent}  auf  Seite
-\pageref{app:python:errorTurbulent}. Der Fehler des Durchflusses ergibt:
+\pageref{app:python:errorTurbulent}.
+
+\clearpage
+Der Fehler des Durchflusses ergibt:
 
 \begin{equation}
     \label{eq:errorTurbulent:simple}
@@ -301,16 +315,16 @@ benutzt,  zu  finden  in   Anhang  \ref{app:python:errorTurbulent}  auf  Seite
 \end{align}
 
 \begin{conditions}
-    \overline{R}                 & \SI{20}{\milli\meter}                 \\
-    \overline{k}                 & \num{7.8876}                          \\
-    \overline{v}_{\mathrm{max}}  & \SI{10.793}{\centi\meter\per\second}  \\
-    s_{\overline{v}}             & \SI{0.15720}{\centi\meter\per\second} \\
-    s_{\overline{R}}             & \SI{0.25}{\milli\meter}               \\
-    s_{\overline{k}}             & \num{1.572}                           \\
+    \overline{R}                 & \SI{20}{\milli\meter}, Durchmesser Messleitung                   \\
+    \overline{k}                 & \num{7.8876}, aus Regression                                     \\
+    \overline{v}_{\mathrm{max}}  & \SI{10.793}{\centi\meter\per\second}, aus Regression             \\
+    s_{\overline{v}}             & \SI{0.15720}{\centi\meter\per\second}, aus Regression            \\
+    s_{\overline{R}}             & \SI{0.25}{\milli\meter}, Unsicherheit Durchmesser Messleitung    \\
+    s_{\overline{k}}             & \num{1.572}, aus Regression                                      \\
 \end{conditions}
 
 Zusammengefasst also:
 \begin{equation}
     \label{eq:error:turbulent:final}
-    \dot{V}_{\mathrm{turbulent}} = \SI{6.792 \pm 0.304}{\liter\per\minute}
+    \underline{\underline{\dot{V}_{\mathrm{turbulent}} = \SI{6.792 \pm 0.304}{\liter\per\minute}}}
 \end{equation}

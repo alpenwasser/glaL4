@@ -44,7 +44,7 @@ ax2.legend()
 ax3.legend()
 ax4.legend()
 ax5.legend()
-fig1.subplots_adjust(bottom=0.01,top=0.99,left=0.01,right=0.99)
+fig1.subplots_adjust(bottom=0.01,top=0.99,left=0.05,right=0.99)
 fig1.savefig('heterodyning.pgf')
 
 w = 20
